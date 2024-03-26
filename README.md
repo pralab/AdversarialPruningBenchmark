@@ -61,9 +61,7 @@ To load AP methods in our benchmark, one must compile the taxonomy in our [Googl
 Then, the checkpoints must be evaluated using the `test_model()` method. 
 
 
-## Install our repository
-
-First, install the latest version of **`RobustBench`** (recommended):
+## Clone our repository
 
 ```bash
 git clone "link/to/repo@github.com"
