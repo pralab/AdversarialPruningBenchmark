@@ -112,5 +112,5 @@ We welcome any contribution to the Benchmark, such as:
 ```
 
 ## Contact
-Feel free to contact us about anything related to **`RobustBench`** by creating an issue, a pull request or
+Feel free to contact us about anything related to our benchmark by creating an issue, a pull request or
 by email at `giorgio.piras@unica.it`.
