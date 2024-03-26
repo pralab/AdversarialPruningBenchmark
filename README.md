@@ -4,9 +4,11 @@
 
 **Paper:** [link](link)
 
-## Main idea :grapes: :scissors: :bookmark: :shield:
+# :grapes: :scissors: :shield:
+## Main idea 
 :monocle_face: The goal of the Adversarial Pruning (AP) Benchmark is to make AP methods be evaluated in a fair, comparable way.
-That is why, in our [paper](paper), we created a taxonomy of adversarial pruning method, thus enabling a clear and systematic analysis of the methods :star_struck
+APs represent all those pruning methods whose goal is to get a pruned network while preserving/inducing as much robustness against adversarial attacks as possible :shield:
+That is why, in our [paper](paper), we created a taxonomy of adversarial pruning method, thus enabling a clear and systematic analysis of the methods :star_struck 📑
 In addition, to fairly and comparably analyze the AP methods, we created the adversarial pruning benchmark :hammer: :grapes:
 
 We evaluate the AP methods using the AutoAttack framework and the HO-FMN attack, making up for the major issues in adversarial evaluations and ensuring a complete security evaluation.
@@ -103,16 +105,9 @@ We welcome any contribution to the Benchmark, such as:
 
 ## Citation
 
-Would you like to reference the **`RobustBench`** leaderboard or you are using models from the **Model Zoo**? \
-Then consider citing our [whitepaper](https://arxiv.org/abs/2010.09670):
 
 ```bibtex
-@inproceedings{croce2021robustbench,
-  title     = {RobustBench: a standardized adversarial robustness benchmark},
-  author    = {Croce, Francesco and Andriushchenko, Maksym and Sehwag, Vikash and Debenedetti, Edoardo and Flammarion, Nicolas and Chiang, Mung and Mittal, Prateek and Matthias Hein},
-  booktitle = {Thirty-fifth Conference on Neural Information Processing Systems Datasets and Benchmarks Track},
-  year      = {2021},
-  url       = {https://openreview.net/forum?id=SSKZPJCt7B}
+
 }
 ```
 
