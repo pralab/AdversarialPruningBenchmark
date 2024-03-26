@@ -6,13 +6,17 @@
 
 ## Main idea 
 The goal of the Adversarial Pruning (AP) Benchmark is to make AP methods be evaluated in a fair, comparable way :monocle_face: 
+
 APs represent all those pruning methods whose goal is to get a pruned network while preserving/inducing as much robustness against adversarial attacks as possible :shield:
+
 That is why, in our [paper](paper), we created a taxonomy of adversarial pruning method, thus enabling a clear and systematic analysis of the methods :star_struck: :bookmark_tabs:
+
 In addition, to fairly and comparably analyze the AP methods, we created the adversarial pruning benchmark :hammer_and_wrench: :grapes:
 
 We evaluate the AP methods using the AutoAttack framework and the HO-FMN attack, making up for the major issues in adversarial evaluations and ensuring a complete security evaluation.
 
-## Usage: Do you want to taste the grapes? :grapes: Here's how you test a pruned model:
+## Usage: Do you want to taste the grapes? :grapes: 
+## Here's how you test a pruned model:
 :video_game: To test a pruned model that is available at our leaderboard, one must specify the AP method, the architecture, the dataset, the structure, and the sparsity.
 Then, the model can be loaded and tested, and additionally security curves can be plotted! 
 
