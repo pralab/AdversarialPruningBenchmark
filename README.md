@@ -1,19 +1,18 @@
-# Adversarial Pruning Benchmark
+# Adversarial Pruning Benchmark :grapes: :scissors: :shield:
 
 **Giorgio Piras (University of Cagliari, University of Roma La Sapienza), Maura Pintor (University of Cagliari), Ambra Demontis (University of Cagliari), Battista Biggio (University of Cagliari), Giorgio Giacinto (University of Cagliari), Fabio Roli (University of Cagliari, University of Genova)**
 
 **Paper:** [link](link)
 
-# :grapes: :scissors: :shield:
 ## Main idea 
-:monocle_face: The goal of the Adversarial Pruning (AP) Benchmark is to make AP methods be evaluated in a fair, comparable way.
+The goal of the Adversarial Pruning (AP) Benchmark is to make AP methods be evaluated in a fair, comparable way :monocle_face: 
 APs represent all those pruning methods whose goal is to get a pruned network while preserving/inducing as much robustness against adversarial attacks as possible :shield:
-That is why, in our [paper](paper), we created a taxonomy of adversarial pruning method, thus enabling a clear and systematic analysis of the methods :star_struck 📑
-In addition, to fairly and comparably analyze the AP methods, we created the adversarial pruning benchmark :hammer: :grapes:
+That is why, in our [paper](paper), we created a taxonomy of adversarial pruning method, thus enabling a clear and systematic analysis of the methods :star_struck: :bookmark_tabs:
+In addition, to fairly and comparably analyze the AP methods, we created the adversarial pruning benchmark :hammer_and_wrench: :grapes:
 
 We evaluate the AP methods using the AutoAttack framework and the HO-FMN attack, making up for the major issues in adversarial evaluations and ensuring a complete security evaluation.
 
-## Usage: How to test a pruned model
+## Usage: Do you want to taste the grapes? :grapes: Here's how you test a pruned model:
 :video_game: To test a pruned model that is available at our leaderboard, one must specify the AP method, the architecture, the dataset, the structure, and the sparsity.
 Then, the model can be loaded and tested, and additionally security curves can be plotted! 
 
@@ -46,7 +45,7 @@ print(f'Within the taxonomy, here are the AP entries: {load_taxonomy(ap)}')
 
 ```
 
-## Contributing: How to load an AP in our benchmark? 
+## Contributing: Did you just harvest? :scissors: Here's how to load an AP in our benchmark:
 :hugs: We welcome AP authors wishing to see their AP be taxonomized and benchmarked! 
 To load AP methods in our benchmark, one must compile the taxonomy in our [Google Drive form](), and then submit the checkpoint files at... :warning: :construction_worker_man:
 Then, the checkpoints must be evaluated using the `test_model()` method. 
