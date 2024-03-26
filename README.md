@@ -16,7 +16,7 @@ In addition, to fairly and comparably analyze the AP methods, we created the adv
 We evaluate the AP methods using the AutoAttack framework and the HO-FMN attack, making up for the major issues in adversarial evaluations and ensuring a complete security evaluation.
 
 ## Usage: Do you want to taste the grapes? :grapes: 
-## Here's how you test a pruned model:
+### Here's how you test a pruned model:
 :video_game: To test a pruned model that is available at our leaderboard, one must specify the AP method, the architecture, the dataset, the structure, and the sparsity.
 Then, the model can be loaded and tested, and additionally security curves can be plotted! 
 
