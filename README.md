@@ -24,8 +24,6 @@
 Then, the model can be loaded and tested, and additionally security curves can be plotted! 
 
 ```python
-from models import *
-from attacks import * 
 from utils import load_model, test_model
 from utils.plots import plot_sec_curve
 from taxonomy import load_taxonomy
@@ -121,3 +119,6 @@ We welcome any contribution to the Benchmark, such as:
 ## Contact
 Feel free to contact us about anything related to our benchmark by creating an issue, a pull request or
 by email at `giorgio.piras@unica.it`.
+
+## TODO 
+- Unify all state_dicts into one single resnet and vgg class. 
