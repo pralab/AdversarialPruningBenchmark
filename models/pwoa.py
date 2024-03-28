@@ -141,7 +141,7 @@ class ResNet(nn.Module):
 
 def ResNet18(**kwargs):
     rob = kwargs['robustness'] if 'robustness' in kwargs else False
-    return ResNet(BasicBlock, [2, 2, 2, 2], kwargs['num_classes'], rob=True)  # TODO: change for training
+    return ResNet(BasicBlock, [2, 2, 2, 2], kwargs['num_classes'], rob=True)
 
 
 # def ResNet18(num_classes=10):
