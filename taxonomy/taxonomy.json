@@ -1,0 +1,86 @@
+{
+  "taxonomy": {
+    "A_METHODS_PRUNING_AFTER_TRAINING": {
+      "RADMM": {
+        "pretraining": "AT",
+        "finetuning": "AT",
+        "specifics": {
+          "1S-IT": true,
+          "S-US": true,
+          "L-G": true
+        },
+        "criterion": "SOLWM"
+      },
+      "HYDRA": {
+        "pretraining": "AT",
+        "finetuning": "AT",
+        "specifics": {
+          "1S-IT": true,
+          "US": true,
+          "L": true
+        },
+        "criterion": "LIS"
+      },
+      "Heracles": {
+        "pretraining": "AT",
+        "finetuning": "AT",
+        "specifics": {
+          "1S-IT": true,
+          "S-US": true,
+          "G": true
+        },
+        "criterion": "LIS"
+      },
+      "HARP": {
+        "pretraining": "AT",
+        "finetuning": "AT",
+        "specifics": {
+          "1S-IT": true,
+          "S-US": true,
+          "G": true
+        },
+        "criterion": "LIS"
+      },
+    },
+    "B_METHODS_PRUNING_BEFORE_TRAINING": {
+      "Cosentino19": {
+        "pruning_step": "AT",
+        "training_step": "AT",
+        "specifics": {
+          "1S-IT": true,
+          "US": true,
+          "G": true
+        },
+        "criterion": "LWM"
+      },
+      "Li20": {
+        "pruning_step": "AT",
+        "training_step": "AT",
+        "specifics": {
+          "1S-IT": true,
+          "US": true,
+          "G": true
+        },
+        "criterion": "LWM"
+      },
+    },
+    "D_METHODS_PRUNING_DURING_TRAINING": {
+      "TwinRep": {
+        "training_step": "AT",
+        "specifics": {
+          "S-US": true,
+          "G": true
+        },
+        "criterion": "SPALWM"
+      },
+      "BCS-P": {
+        "training_step": "AT",
+        "specifics": {
+          "US": true,
+          "L-G": true
+        },
+        "criterion": "BCS"
+      },
+    }
+  }
+}
