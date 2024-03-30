@@ -1,86 +1,278 @@
-{
-  "taxonomy": {
-    "A_METHODS_PRUNING_AFTER_TRAINING": {
-      "RADMM": {
-        "pretraining": "AT",
-        "finetuning": "AT",
-        "specifics": {
-          "1S-IT": true,
-          "S-US": true,
-          "L-G": true
-        },
-        "criterion": "SOLWM"
-      },
-      "HYDRA": {
-        "pretraining": "AT",
-        "finetuning": "AT",
-        "specifics": {
-          "1S-IT": true,
-          "US": true,
-          "L": true
-        },
-        "criterion": "LIS"
-      },
-      "Heracles": {
-        "pretraining": "AT",
-        "finetuning": "AT",
-        "specifics": {
-          "1S-IT": true,
-          "S-US": true,
-          "G": true
-        },
-        "criterion": "LIS"
-      },
-      "HARP": {
-        "pretraining": "AT",
-        "finetuning": "AT",
-        "specifics": {
-          "1S-IT": true,
-          "S-US": true,
-          "G": true
-        },
-        "criterion": "LIS"
-      },
-    },
-    "B_METHODS_PRUNING_BEFORE_TRAINING": {
-      "Cosentino19": {
-        "pruning_step": "AT",
-        "training_step": "AT",
-        "specifics": {
-          "1S-IT": true,
-          "US": true,
-          "G": true
-        },
-        "criterion": "LWM"
-      },
-      "Li20": {
-        "pruning_step": "AT",
-        "training_step": "AT",
-        "specifics": {
-          "1S-IT": true,
-          "US": true,
-          "G": true
-        },
-        "criterion": "LWM"
-      },
-    },
-    "D_METHODS_PRUNING_DURING_TRAINING": {
-      "TwinRep": {
-        "training_step": "AT",
-        "specifics": {
-          "S-US": true,
-          "G": true
-        },
-        "criterion": "SPALWM"
-      },
-      "BCS-P": {
-        "training_step": "AT",
-        "specifics": {
-          "US": true,
-          "L-G": true
-        },
-        "criterion": "BCS"
-      },
-    }
+[
+  {
+    "link_to_paper": "https://openaccess.thecvf.com/content_ICCV_2019/papers/Ye_Adversarial_Robustness_vs._Model_Compression_or_Both_ICCV_2019_paper.pdf",
+    "ap_key": "RADMM_Ye2019Adversarial",
+    "Type of Pipeline:": "A-Methods Pruning After Training",
+    "A: Pretraining ": "Adversarial Training (AT) PGD",
+    "A: Finetuning": "Adversarial Training (AT) PGD",
+    "A: OneShot (1S) vs Iterative (IT)": "1S",
+    "Pruning structure": "Unstructured (US), Structured (S) filters",
+    "Pruning locality": "Local Pruning (L)",
+    "Pruning criterion": "Solver Based LWM (SOLWM)"
+  },
+  {
+    "link_to_paper": "https://arxiv.org/pdf/2002.10509.pdf",
+    "ap_key": "HYDRA_Sehwag2020Hydra",
+    "Type of Pipeline:": "A-Methods Pruning After Training",
+    "A: Pretraining ": "Adversarial Training (AT) TRADES",
+    "A: Finetuning": "Adversarial Training (AT) TRADES",
+    "A: OneShot (1S) vs Iterative (IT)": "1S",
+    "Pruning structure": "Unstructured (US)",
+    "Pruning locality": "Local Pruning (L)",
+    "Pruning criterion": "Least Importance Score (LIS)"
+  },
+  {
+    "link_to_paper": "https://openreview.net/pdf?id=rElOlZ6SUg5",
+    "ap_key": "Heracles_Zhao2022NonUniform",
+    "Type of Pipeline:": "A-Methods Pruning After Training",
+    "A: Pretraining ": "Adversarial Training (AT) PGD",
+    "A: Finetuning": "Adversarial Training (AT) PGD",
+    "A: OneShot (1S) vs Iterative (IT)": "1S",
+    "Pruning structure": "Unstructured (US), Structured (S) channels",
+    "Pruning locality": "Global Pruning (G)",
+    "Pruning criterion": "Least Importance Score (LIS)"
+  },
+  {
+    "link_to_paper": "https://openreview.net/pdf?id=sAJDi9lD06L",
+    "ap_key": "HARP_Zhao2023Holistic",
+    "Type of Pipeline:": "A-Methods Pruning After Training",
+    "A: Pretraining ": "Adversarial Training (AT) TRADES",
+    "A: Finetuning": "Adversarial Training (AT) TRADES",
+    "A: OneShot (1S) vs Iterative (IT)": "1S",
+    "Pruning structure": "Unstructured (US), Structured (S) channels",
+    "Pruning locality": "Global Pruning (G)",
+    "Pruning criterion": "Least Importance Score (LIS)"
+  },
+  {
+    "link_to_paper": "https://arxiv.org/pdf/2210.04311.pdf",
+    "ap_key": "PwoA_Jian2022Pruning",
+    "Type of Pipeline:": "A-Methods Pruning After Training",
+    "A: Pretraining ": "Adversarial Training (AT) TRADES",
+    "A: Finetuning": "Knowledge Distillation (KD)",
+    "A: OneShot (1S) vs Iterative (IT)": "1S",
+    "Pruning structure": "Unstructured (US)",
+    "Pruning locality": "Local Pruning (L)",
+    "Pruning criterion": "Solver Based LWM (SOLWM)"
+  },
+  {
+    "link_to_paper": "https://arxiv.org/pdf/2204.02738.pdf",
+    "ap_key": "MAD_Lee2022Masking",
+    "Type of Pipeline:": "A-Methods Pruning After Training",
+    "A: Pretraining ": "Adversarial Training (AT) PGD",
+    "A: Finetuning": "Adversarial Training (AT) PGD",
+    "A: OneShot (1S) vs Iterative (IT)": "1S",
+    "Pruning structure": "Unstructured (US)",
+    "Pruning locality": "Global Pruning (G)",
+    "Pruning criterion": "Least Importance Score (LIS)"
+  },
+  {
+    "link_to_paper": "https://arxiv.org/pdf/1906.06110.pdf",
+    "ap_key": "Sehwag19_Sehwag2019Towards",
+    "Type of Pipeline:": "A-Methods Pruning After Training",
+    "A: Pretraining ": "Adversarial Training (AT) PGD",
+    "A: Finetuning": "Adversarial Training (AT) PGD",
+    "A: OneShot (1S) vs Iterative (IT)": "IT",
+    "Pruning structure": "Unstructured (US), Structured (S) filters",
+    "Pruning locality": "Global Pruning (G)",
+    "Pruning criterion": "Lowest Weight Magnitude LWM"
+  },
+  {
+    "link_to_paper": "https://arxiv.org/pdf/1905.13074.pdf",
+    "ap_key": "RSR_Rakin2019Robust",
+    "Type of Pipeline:": "A-Methods Pruning After Training",
+    "A: Pretraining ": "Adversarial Training (AT) PGD",
+    "A: Finetuning": "Not Specified",
+    "A: OneShot (1S) vs Iterative (IT)": "1S",
+    "Pruning structure": "Unstructured (US)",
+    "Pruning locality": "Global Pruning (G)",
+    "Pruning criterion": "Sparsity Based LWM (SPALWM)"
+  },
+  {
+    "link_to_paper": "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9534077",
+    "ap_key": "BNAP_Wei2021Batch",
+    "Type of Pipeline:": "A-Methods Pruning After Training",
+    "A: Pretraining ": "Adversarial Training (AT) PGD",
+    "A: Finetuning": "Adversarial Training (AT) PGD",
+    "A: OneShot (1S) vs Iterative (IT)": "1S",
+    "Pruning structure": "Unstructured (US), Structured (S) filters",
+    "Pruning locality": "Global Pruning (G)",
+    "Pruning criterion": "Least Importance Score (LIS)"
+  },
+  {
+    "link_to_paper": "http://esoc.hanyang.ac.kr/publications/2021/Robustness_aware_Filter_Pruning_for_Robust_Neural_Networks_Against_Adversarial_Attacks.pdf",
+    "ap_key": "RSR_Lim2021Robustness",
+    "Type of Pipeline:": "A-Methods Pruning After Training",
+    "A: Pretraining ": "https://arxiv.org/pdf/1905.02175.pdf",
+    "A: Finetuning": "https://arxiv.org/pdf/1905.02175.pdf",
+    "A: OneShot (1S) vs Iterative (IT)": "1S",
+    "Pruning structure": "Structured (S) filters",
+    "Pruning locality": "Local Pruning (L)",
+    "Pruning criterion": "Highest Gradient Magnitude (HGM)"
+  },
+  {
+    "link_to_paper": "https://arxiv.org/pdf/2202.05226.pdf",
+    "ap_key": "DeadWooding_Kaur2022Deadwooding",
+    "Type of Pipeline:": "A-Methods Pruning After Training",
+    "A: Pretraining ": "Not Specified",
+    "A: Finetuning": "KD + FGSM ",
+    "A: OneShot (1S) vs Iterative (IT)": "1S",
+    "Pruning structure": "Unstructured (US)",
+    "Pruning locality": "Global Pruning (G)",
+    "Pruning criterion": "Solver Based LWM (SOLWM)"
+  },
+  {
+    "link_to_paper": "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10095291",
+    "ap_key": "FRE_Zhuang2023Adversarial",
+    "Type of Pipeline:": "A-Methods Pruning After Training",
+    "A: Pretraining ": "Adversarial Training (AT) TRADES",
+    "A: Finetuning": "Adversarial Training (AT) TRADES",
+    "A: OneShot (1S) vs Iterative (IT)": "IT",
+    "Pruning structure": "Structured (S) filters",
+    "Pruning locality": "Global Pruning (G)",
+    "Pruning criterion": "Least Importance Score (LIS)"
+  },
+  {
+    "link_to_paper": "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10332249",
+    "ap_key": "Luo23_Luo2023Towards",
+    "Type of Pipeline:": "A-Methods Pruning After Training",
+    "A: Pretraining ": "Adversarial Training (AT) PGD",
+    "A: Finetuning": "Adversarial Training (AT) PGD",
+    "A: OneShot (1S) vs Iterative (IT)": "1S",
+    "Pruning structure": "Structured (S) filters",
+    "Pruning locality": "Local Pruning (L)",
+    "Pruning criterion": "Least Importance Score (LIS)"
+  },
+  {
+    "link_to_paper": "https://openreview.net/pdf?id=Pjky9XG8zP",
+    "ap_key": "SRGKP_Zhong2023One",
+    "Type of Pipeline:": "A-Methods Pruning After Training",
+    "A: Pretraining ": "Natural Training (NT)",
+    "A: Finetuning": "Natural Training (NT)",
+    "A: OneShot (1S) vs Iterative (IT)": "1S",
+    "Pruning structure": "Structured (S) Kernel",
+    "Pruning locality": "Local Pruning (L)",
+    "Pruning criterion": "Least Importance Score (LIS)"
+  },
+  {
+    "link_to_paper": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4551998",
+    "ap_key": "FSRP_Qian2023Robust",
+    "Type of Pipeline:": "A-Methods Pruning After Training",
+    "A: Pretraining ": "Adversarial Training (AT) PGD",
+    "A: Finetuning": "Adversarial Training (AT) PGD",
+    "A: OneShot (1S) vs Iterative (IT)": "1S",
+    "Pruning structure": "Structured (S) filters",
+    "Pruning locality": "Local Pruning (L)",
+    "Pruning criterion": "Least Importance Score (LIS)"
+  },
+  {
+    "link_to_paper": "https://arxiv.org/pdf/1912.02386.pdf",
+    "ap_key": "Cosentino19_Cosentino2019The",
+    "Type of Pipeline:": "B-Methods Pruning Before Training",
+    "B: Pruning step ": "Adversarial Training (AT) PGD",
+    "B: Training step ": "Adversarial Training (AT) PGD",
+    "B: OneShot (1S) vs Iterative (IT)": "IT",
+    "Pruning structure": "Unstructured (US)",
+    "Pruning locality": "Global Pruning (G)",
+    "Pruning criterion": "Lowest Weight Magnitude LWM"
+  },
+  {
+    "link_to_paper": "https://arxiv.org/pdf/2003.05733.pdf",
+    "ap_key": "Li20_Li2020Towards",
+    "Type of Pipeline:": "B-Methods Pruning Before Training",
+    "B: Pruning step ": "FGSM https://arxiv.org/pdf/1412.6572.pdf",
+    "B: Training step ": "Adversarial Training (AT) PGD",
+    "B: OneShot (1S) vs Iterative (IT)": "1S",
+    "Pruning structure": "Unstructured (US)",
+    "Pruning locality": "Global Pruning (G)",
+    "Pruning criterion": "Lowest Weight Magnitude LWM"
+  },
+  {
+    "link_to_paper": "https://arxiv.org/pdf/2009.05423.pdf",
+    "ap_key": "Wang20_Wang2020Achieving",
+    "Type of Pipeline:": "B-Methods Pruning Before Training",
+    "B: Pruning step ": "Adversarial Training (AT) PGD",
+    "B: Training step ": "Adversarial Training (AT) PGD",
+    "B: OneShot (1S) vs Iterative (IT)": "IT",
+    "Pruning structure": "Unstructured (US)",
+    "Pruning locality": "Global Pruning (G)",
+    "Pruning criterion": "Lowest Weight Magnitude LWM"
+  },
+  {
+    "link_to_paper": "https://proceedings.neurips.cc/paper_files/paper/2021/file/6ce8d8f3b038f737cefcdafcf3752452-Paper.pdf",
+    "ap_key": "RST_Fu2021Drawing",
+    "Type of Pipeline:": "B-Methods Pruning Before Training",
+    "B: Pruning step ": "Adversarial Training (AT) PGD",
+    "B: Training step ": "None",
+    "B: OneShot (1S) vs Iterative (IT)": "1S",
+    "Pruning structure": "Unstructured (US)",
+    "Pruning locality": "Local Pruning (L)",
+    "Pruning criterion": "Least Importance Score (LIS)"
+  },
+  {
+    "link_to_paper": "https://arxiv.org/pdf/2202.09844.pdf",
+    "ap_key": "RobustBird_Chen2021Sparsity",
+    "Type of Pipeline:": "B-Methods Pruning Before Training",
+    "B: Pruning step ": "Adversarial Training (AT) PGD",
+    "B: Training step ": "Adversarial Training (AT) PGD",
+    "B: OneShot (1S) vs Iterative (IT)": "IT",
+    "Pruning structure": "Unstructured (US)",
+    "Pruning locality": "Global Pruning (G)",
+    "Pruning criterion": "Lowest Weight Magnitude LWM"
+  },
+  {
+    "link_to_paper": "https://proceedings.mlr.press/v151/shi22a/shi22a.pdf",
+    "ap_key": "AWT_Shi2022Finding",
+    "Type of Pipeline:": "B-Methods Pruning Before Training",
+    "B: Pruning step ": "Adversarial Training (AT) PGD",
+    "B: Training step ": "Adversarial Training (AT) PGD",
+    "B: OneShot (1S) vs Iterative (IT)": "1S",
+    "Pruning structure": "Unstructured (US)",
+    "Pruning locality": "Not Specified",
+    "Pruning criterion": "Lowest Weight Magnitude LWM"
+  },
+  {
+    "link_to_paper": "https://ojs.aaai.org/index.php/AAAI/article/view/26027",
+    "ap_key": "TwinRep_Li2023Learning",
+    "Type of Pipeline:": "D-Methods Pruning During Training",
+    "D: Training step ": "Adversarial Training (AT) PGD",
+    "Pruning structure": "Unstructured (US), Structured (S) channels",
+    "Pruning locality": "Global Pruning (G)",
+    "Pruning criterion": "Sparsity Based LWM (SPALWM)"
+  },
+  {
+    "link_to_paper": "https://proceedings.mlr.press/v139/ozdenizci21a/ozdenizci21a.pdf",
+    "ap_key": "BCSP_Özdenizc2021Training",
+    "Type of Pipeline:": "D-Methods Pruning During Training",
+    "D: Training step ": "Adversarial Training (AT) PGD",
+    "Pruning structure": "Unstructured (US)",
+    "Pruning locality": "Global Pruning (G), Local Pruning (L)",
+    "Pruning criterion": "Bayesian Connectivity Sampling (BCS)"
+  },
+  {
+    "link_to_paper": "https://arxiv.org/pdf/2011.03083.pdf",
+    "ap_key": "DNR_Kundu2020Tunable",
+    "Type of Pipeline:": "D-Methods Pruning During Training",
+    "D: Training step ": "Adversarial Training (AT) PGD",
+    "Pruning structure": "Unstructured (US), Structured (S) channels",
+    "Pruning locality": "Global Pruning (G)",
+    "Pruning criterion": "Least Importance Score (LIS)"
+  },
+  {
+    "link_to_paper": "https://openaccess.thecvf.com/content/CVPR2021W/SAIAD/papers/Vemparala_Adversarial_Robust_Model_Compression_Using_In-Train_Pruning_CVPRW_2021_paper.pdf",
+    "ap_key": "InTrain_Vemparala2021Adversarial",
+    "Type of Pipeline:": "D-Methods Pruning During Training",
+    "D: Training step ": "FAST AT https://arxiv.org/pdf/2001.03994.pdf",
+    "Pruning structure": "Unstructured (US), Structured (S) channels",
+    "Pruning locality": "Global Pruning (G)",
+    "Pruning criterion": "Least Importance Score (LIS)"
+  },
+  {
+    "link_to_paper": "https://arxiv.org/pdf/2202.09844.pdf",
+    "ap_key": "FlyingBird_Chen2021Sparsity",
+    "Type of Pipeline:": "D-Methods Pruning During Training",
+    "D: Training step ": "Adversarial Training (AT) PGD",
+    "Pruning structure": "Unstructured (US)",
+    "Pruning locality": "Global Pruning (G)",
+    "Pruning criterion": "Lowest Weight Magnitude LWM"
   }
-}
+]

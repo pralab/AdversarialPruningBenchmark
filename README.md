@@ -21,32 +21,40 @@
 ## Usage: Do you want to taste the grapes? :grapes: 
 ### Here's how you test a pruned model:
 :video_game: To test a pruned model that is available at our leaderboard, one must specify the AP method, the architecture, the dataset, the structure, and the sparsity.
-Then, the model can be loaded and tested, and additionally security curves can be plotted! 
+Then, the model can be loaded and tested, and additionally security curves can be plotted!
 
 ```python
-from utils import load_model, test_model
+from utils.utils import load_model, model_key_maker
 from utils.plots import plot_sec_curve
-from taxonomy import load_taxonomy
+from utils.test import test_model_aa, test_model_hofmn
+from taxonomy.utils import load_ap_taxonomy
 
 ap = "HARP_Zhao2023Holistic"
-arch = "resnet18" 
-ds = "CIFAR10" 
-struct= "weights" # or filters, channels
+arch = "resnet18"
+ds = "CIFAR10"
+struct = "weights"  # or filters, channels
 sr = "90"
 
+# get a unique model key
+model_key = model_key_maker(ap_method=ap,
+                            architecture=arch,
+                            dataset=ds,
+                            structure=struct,
+                            sparsity_rate=sr)
+
 # when get_distances, the distances computed with the best config from HO-FMN is returned in addition to the model
-model, distances = load_model(ap_method = ap, 
-                              architecture = arch, 
-                              dataset = ds, 
-                              structured = struct, 
-                              sparsity_rate = sr, 
-                              get_distances = True) 
+model = load_model(model_key=model_key)
 
-rob_acc_aa, rob_acc_hofmn = test_model(model, aa=True, hofmn=True) 
-plot_sec_curve(distances, title='HARP_R18_CIFAR10_US_90', save=False)
+# test the model 
+rob_acc_aa = test_model_aa(model)
+rob_acc_hofmn, distances = test_model_hofmn(model, loss='DLR', optimizer='SGD', scheduler='CALR', get_distances=True)
 
-print(f'The AP {ap} has AutoAttack robust accuracy equal to {rob_acc_aa}') 
-print(f'Within the taxonomy, here are the AP entries: {load_taxonomy(ap)}') 
+# plot security curve
+plot_sec_curve(distances, title=model_key+'DLR_SGD_CALR', save=False)
+
+print(f'Model {model_key} AA robust accuracy: {rob_acc_aa}')
+print(f'Model {model_key} HO-FMN robust accuracy: {rob_acc_hofmn}')
+print(f'Within the taxonomy, here are the AP entries: {load_ap_taxonomy(ap)}')
 
 ```
 
@@ -55,7 +63,7 @@ print(f'Within the taxonomy, here are the AP entries: {load_taxonomy(ap)}')
 ## Contributing: Did you just harvest? :scissors: 
 ### Here's how to load an AP in our benchmark:
 :hugs: We welcome AP authors wishing to see their AP be taxonomized and benchmarked! 
-To load AP methods in our benchmark, one must compile the taxonomy in our [Google Drive form](), and then submit the checkpoint files at... :warning: :construction_worker_man:
+To load AP methods in our benchmark, one must compile the taxonomy in our [Google Drive form](https://forms.gle/M4gzq2BEC6CzZhPv7), and then submit the checkpoint files at... :warning: :construction_worker_man:
 Then, the checkpoints must be evaluated using the `test_model()` method. 
 
 
@@ -64,6 +72,9 @@ Then, the checkpoints must be evaluated using the `test_model()` method.
 ```bash
 git clone "link/to/repo@github.com"
 ```
+
+## Taxonomy 
+
 
 
 ### CIFAR-10 US pruning, ResNet18
