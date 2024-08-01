@@ -19,7 +19,7 @@ For further details, please refer to our [paper](link)
 - Therefore, in our paper, we created a taxonomy of adversarial pruning methods, allowing a clear and systematic analysis of the methods; in addition, to fairly and comparably analyze the AP methods, we created the **adversarial pruning benchmark**.
 
 
-## Usage :test_tube:
+## How to use our repo :test_tube:
 To clone our repo, copy and paste this command 
 ```bash 
 git clone 
@@ -53,12 +53,14 @@ model_key = model_key_maker(ap_method=ap,
 model = load_model(model_key=model_key)
 
 # test the model 
-rob_acc_aa = test_model_aa(model)
-rob_acc_hofmn, distances = test_model_hofmn(model, loss='DLR', optimizer='SGD', scheduler='CALR', get_distances=True)
+clean_acc, rob_acc_aa = test_model_aa(model, dataset=ds, data_dir='my_datadir/CIFAR10', device='cuda:0')
+rob_acc_hofmn, distances = test_model_hofmn(model, model_key=model_key, dataset=ds, data_dir='my_datadir/CIFAR10', device='cuda:0', loss='DLR', optimizer='SGD', scheduler='CALR', get_distances=True)
 
-# plot security curve
-plot_sec_curve(distances, title=model_key+'DLR_SGD_CALR', save=False)
+# plot security curve (you can compare even more models together)
+names = [model_key]  # add a name for each model to appear in the legend
+plot_sec_curve(distances, names, title=model_key+'DLR_SGD_CALR', save=False)
 
+print(f'Model {model_key} clean accuracy: {clean_acc}')
 print(f'Model {model_key} AA robust accuracy: {rob_acc_aa}')
 print(f'Model {model_key} HO-FMN robust accuracy: {rob_acc_hofmn}')
 print(f'Within the taxonomy, here are the AP entries: {load_ap_taxonomy(ap)}')
@@ -75,15 +77,19 @@ from your_model.arch import arch
 # load your local model
 local_model = arch() 
 local_model.load_state_dict(torch.load("your_model_state_dict"))
+model_key='my_model'
 
 # test the model 
-rob_acc_aa = test_model_aa(local_model)
-rob_acc_hofmn, distances = test_model_hofmn(local_model, loss='DLR', optimizer='SGD', scheduler='CALR', get_distances=True)
+clean_acc, rob_acc_aa = test_model_aa(local_model, dataset='CIFAR10', data_dir='my_datadir/CIFAR10', device='cuda:0')
+rob_acc_hofmn, distances = test_model_hofmn(model=local_model, model_key=model_key, dataset='CIFAR10', data_dir='my_datadir/CIFAR10', save_dist_path='my_path', device='cuda:0', loss='DLR', optimizer='SGD', scheduler='CALR', get_distances=True)
+
+print(f'Clean accuracy: {clean_acc}')
 print(f'AA robust accuracy: {rob_acc_aa}')
 print(f'HO-FMN robust accuracy: {rob_acc_hofmn}')
 
-# plot security curve
-plot_sec_curve(distances, title='local_model_SecCurve', save=False)
+# plot security curve 
+names = ['my_model']
+plot_sec_curve(distances, names, title='local_model_SecCurve', save=False)
 ```
 
 
@@ -105,8 +111,7 @@ Contributing to the benchmark is simple and requires just three steps:
 import torch
 from utils.utils import model_key_maker, load_model
 from utils.test import benchmark
-from
-
+# load your architecture
 from your_models.arch import arch
 
 # load your local model
@@ -117,11 +122,11 @@ local_model.load_state_dict(torch.load("your_model_state_dict"))
 model_key = model_key_maker(ap_method='ap_key', # first entry of json file
                             architecture='resnet18', # or vgg16
                             dataset='CIFAR10', # or SVHN
-                            structure='weights', # if US; or filters and kernels if S
+                            structure='weights', # if US; or filters and channels if S
                             sparsity_rate='90') # or any other sparsity
 
 # it will automatically print the results, that you should keep 
-benchmark(local_model, model_key)  
+benchmark(local_model, model_key, data_dir, device)  
 
 # check architecture compliance 
 model = load_model(model_key='base', normalization=False)
