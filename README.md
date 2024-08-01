@@ -19,11 +19,16 @@ For further details, please refer to our [paper](link)
 - Therefore, in our paper, we created a taxonomy of adversarial pruning methods, allowing a clear and systematic analysis of the methods; in addition, to fairly and comparably analyze the AP methods, we created the **adversarial pruning benchmark**.
 
 
-## Usage: 
-### Test a pruned model already loaded in the benchmark:
+## Usage :test_tube:
+To clone our repo, copy and paste this command 
+```bash 
+git clone 
+```
+
+### Test a pruned model already loaded in the benchmark :hammer_and_wrench:
 To test a pruned model that is available at our leaderboard, one must specify the AP method, the architecture, the dataset, the structure, and the sparsity.
 Then, the model can be loaded and tested, and additionally security curves can be plotted!
-After cloning the repo through ``git clone ...``: 
+
 
 ```python
 from utils.utils import load_model, model_key_maker
@@ -59,10 +64,8 @@ print(f'Model {model_key} HO-FMN robust accuracy: {rob_acc_hofmn}')
 print(f'Within the taxonomy, here are the AP entries: {load_ap_taxonomy(ap)}')
 
 ```
-### Evaluate your local model: 
-If you instead want to test your local model with AutoAttack and HO-FMN:
-
-After cloning the repo through ``git clone ...``: 
+### Evaluate your local model :microscope: 
+If you instead want to test your local model with AutoAttack and HO-FMN, follow this code after cloning the repo through: 
 ```python
 from utils.utils import model_key_maker
 from utils.plots import plot_sec_curve
@@ -84,7 +87,7 @@ plot_sec_curve(distances, title='local_model_SecCurve', save=False)
 ```
 
 
-## Contributing to the benchmark: 
+## Contributing to the benchmark :hugs:
 We welcome AP authors wishing to see their AP taxonomized and benchmarked! :hugs: 
 
 #### Important reminder on contributing.
@@ -130,7 +133,7 @@ The benchmark method will test your model using both AA and HO-FMN, and will pri
 By checking the compliance, you can understand if your local model can be loaded into the available base VGG16 and ResNet18 implementation. 
 If not, this should be indicated in Step3.
 
-**STEP 3**: Open the issue. The last step consists in loading the JSON Entry sent via email and the output of the `benchmark` method into the dedicated issue, [New AP method](https://github.com/giorgiopiras/AdversarialPruningBenchmark/issues/new?assignees=&labels=&projects=&template=new-ap-method.md&title=%5BNew+AP+method%5D). In addition, you are required to indicate if your checkpoints require data normalization, and if they can be loaded into the base model implementation. If your checkpoint does not fit the available implementation, please indicate why (you will be just required to add the network implementation, if necessary).
+**STEP 3**: Open the issue. The last step consists in loading the JSON Entry sent via email and the output of the `benchmark` method into the dedicated issue, [New AP method](https://github.com/giorgiopiras/AdversarialPruningBenchmark/issues/new?assignees=&labels=&projects=&template=new-ap-method.md&title=%5BNew+AP+method%5D). Specifically, for each model, you are required to put the results and model key given by the `benchmark` method, and the corresponding checkpoint Google Drive link. In addition, you are required to indicate if your checkpoints require data normalization, and if they cannot be loaded into the base model implementation. If your checkpoint does not fit the available implementation, please indicate why (you will be just required to add the network implementation, if necessary).
 
 
 
