@@ -1,4 +1,4 @@
-# Adversarial Pruning 
+# Adversarial Pruning :scissors: :shield:
 
 Recent work has proposed neural network pruning techniques to reduce the size of a network while preserving its robustness against adversarial examples, i.e., well-crafted inputs designed to mislead predictions.
 These methods, which we refer to as **adversarial pruning** methods, involve complex and articulated designs, making it difficult to analyze the differences and establish a fair and accurate comparison.
@@ -11,7 +11,7 @@ Giorgio Piras (University of Cagliari, University of Roma La Sapienza), Maura Pi
 
 For further details, please refer to our [paper](link)
 
-## Main idea :grapes: :arrow_right: :scissors: :arrow_right: :shield:
+## Main idea 
 - This repository contains the code for the Adversarial Pruning (AP) Benchmark, which aims to make AP methods be evaluated in a fair, comparable way.
 
 - APs represent all those pruning methods whose goal is to prune a neural network while preserving/inducing as much robustness against adversarial attacks as possible. However, their designs are often complex and diverse, making it difficult to understand what makes an AP method successful.
