@@ -51,33 +51,41 @@ def model_key_maker(ap_method=None, architecture='resnet18', dataset='CIFAR10', 
     return ap_method + '_' + ar + '_' + dataset + '_' + st + '_' + sparsity_rate
 
 
-def load_model(model_key=None):
+def load_model(model_key=None, normalization=False):
     """
     This method aims to
     :param model_key: The model key used in google drive.
     :param get_distances: If true, loads the distances from gdrive and returns them.
     :return: model, distances (optional)
     """
-    model_gdrive_id, ext = get_gdrive_id(model_key)
-    model_path = './apb_pruned_models/' + model_key+ext
-    # download the checkpoint
-    download_gdrive_new(model_gdrive_id, model_path)
-    checkpoint = torch.load(model_path, map_location=device)
 
-    # get ap_method+arch to load model
-    third_idx = model_key.find('_', model_key.find('_', model_key.find('_') + 1) + 1)
-    ap_arch = model_key[:third_idx]
+    # test load in base model
+    if 'base' in model_key:
+        model = models.__dict__(model_key)
+        model(normalization=normalization)
 
-    # load model from models
-    model = models.__dict__[ap_arch]()
-    # load checkpoint
-    try:
-        model.load_state_dict(checkpoint['state_dict'])
-    except KeyError:
-        pass
-    try:
-        model.load_state_dict(checkpoint['net'])
-    except KeyError:
-        pass
+    else:
+        model_gdrive_id, ext = get_gdrive_id(model_key)
+        model_path = './apb_pruned_models/' + model_key+ext
+        # download the checkpoint
+        download_gdrive_new(model_gdrive_id, model_path)
+        checkpoint = torch.load(model_path, map_location=device)
+
+        # get ap_method+arch to load model
+        third_idx = model_key.find('_', model_key.find('_', model_key.find('_') + 1) + 1)
+        ap_arch = model_key[:third_idx]
+
+        # load model from models
+        model = models.__dict__[ap_arch]()
+
+        # load checkpoint
+        try:
+            model.load_state_dict(checkpoint['state_dict'])
+        except KeyError:
+            pass
+        try:
+            model.load_state_dict(checkpoint['net'])
+        except KeyError:
+            pass
 
     return model

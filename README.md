@@ -19,7 +19,7 @@ For further details, please refer to our [paper](link)
 - Therefore, in our paper, we created a taxonomy of adversarial pruning methods, allowing a clear and systematic analysis of the methods; in addition, to fairly and comparably analyze the AP methods, we created the **adversarial pruning benchmark**.
 
 
-## How to use our repo :test_tube:
+## Hands-on :test_tube:
 To clone our repo, copy and paste this command 
 ```bash 
 git clone 
@@ -94,7 +94,7 @@ plot_sec_curve(distances, names, title='local_model_SecCurve', save=False)
 
 
 ## Contributing to the benchmark :hugs:
-We welcome AP authors wishing to see their AP taxonomized and benchmarked! :hugs: 
+We welcome AP authors wishing to see their AP taxonomized and benchmarked!  
 
 #### Important reminder on contributing.
 Please note: diversity is fundamental to assess your AP validity! Therefore, we specify that each AP author is required to load **at least** 3 checkpoints to guarantee a minimum acceptable starting level. The number of three checkpoints equals to one architecture/dataset/structure pair and the 3 corresponding sparsities (i.e., 90%, 95%, and 99% for US; 50%, 75%, and 90% for S). 
@@ -104,7 +104,7 @@ However, we encourage authors to **always load the complete suite of models**, w
 Contributing to the benchmark is simple and requires just three steps:
 
 
-**STEP 1**: New Taxonomy entry. Compile the taxonomy of your AP method in our [first Google Drive form](https://forms.gle/M4gzq2BEC6CzZhPv7). This will automatically process your AP and send you a corresponding JSON entry via email.
+**STEP 1**: New Taxonomy entry. Compile the taxonomy of your AP method in our [Google Drive form](https://forms.gle/M4gzq2BEC6CzZhPv7). This will automatically process your AP and send you a corresponding JSON entry via email.
 
 **STEP 2**: Clone the AP repo and evaluate the checkpoints as follows:
 ```python
@@ -129,7 +129,7 @@ model_key = model_key_maker(ap_method='ap_key', # first entry of json file
 benchmark(local_model, model_key, data_dir, device)  
 
 # check architecture compliance 
-model = load_model(model_key='base', normalization=False)
+model = load_model(model_key='base_resnet18', normalization=False)  # or base_vg16
 model.load_state_dict("your_model_state_dict", strict=True)
 
 

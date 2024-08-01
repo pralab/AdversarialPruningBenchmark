@@ -113,32 +113,6 @@ class ResNet(nn.Module):
 
 
 # NOTE: Only supporting default (kaiming_init) initializaition.
-def resnet18(conv_layer, linear_layer, init_type, **kwargs):
-    assert init_type == "kaiming_normal", "only supporting default init for Resnets"
-    return ResNet(conv_layer, linear_layer, BasicBlock, [2, 2, 2, 2], **kwargs)
+def resnet18(normalization):
+    return ResNet(nn.Conv2d, nn.Linear, BasicBlock, [2, 2, 2, 2], normalization)
 
-
-def resnet34(conv_layer, linear_layer, init_type, **kwargs):
-    assert init_type == "kaiming_normal", "only supporting default init for Resnets"
-    return ResNet(conv_layer, linear_layer, BasicBlock, [3, 4, 6, 3], **kwargs)
-
-
-def resnet50(conv_layer, linear_layer, init_type, **kwargs):
-    assert init_type == "kaiming_normal", "only supporting default init for Resnets"
-    return ResNet(conv_layer, linear_layer, Bottleneck, [3, 4, 6, 3], **kwargs)
-
-
-def resnet101(conv_layer, linear_layer, init_type, **kwargs):
-    assert init_type == "kaiming_normal", "only supporting default init for Resnets"
-    return ResNet(conv_layer, linear_layer, Bottleneck, [3, 4, 23, 3], **kwargs)
-
-
-def resnet152(conv_layer, linear_layer, init_type, **kwargs):
-    assert init_type == "kaiming_normal", "only supporting default init for Resnets"
-    return ResNet(conv_layer, linear_layer, Bottleneck, [3, 8, 36, 3], **kwargs)
-
-
-def test():
-    net = resnet18(nn.Conv2d, nn.Linear, "kaiming_normal")
-    y = net(torch.randn(1, 3, 32, 32))
-    print(y.size())
