@@ -22,7 +22,15 @@ For further details, please refer to our [paper](link)
 - Therefore, in our paper, we created a taxonomy of adversarial pruning methods, allowing a clear and systematic analysis of the methods; in addition, to fairly and comparably analyze the AP methods, we created the **adversarial pruning benchmark**.
 
 
-## Hands-on :test_tube: 
+## Play with the notebook :video_game:
+
+![Interactive Plot](media/security_curve.gif)
+
+Open our [Google Colab](https://colab.research.google.com/drive/13Mb9tSXNfivOBfUJJlEuacN84dUT7jqW?usp=sharing), select the models you want to compare, and analyze the security curves!
+
+
+## Hands-on :test_tube:
+
 To clone our repo, copy and paste this command 
 ```bash 
 git clone 
@@ -143,14 +151,6 @@ By checking the compliance, you can understand if your local model can be loaded
 If not, this should be indicated in Step3.
 
 **STEP 3**: _Open the issue_. The last step consists in loading the JSON Entry sent via email and the output of the `benchmark` method into the dedicated issue, [New AP method](https://github.com/giorgiopiras/AdversarialPruningBenchmark/issues/new?assignees=&labels=&projects=&template=new-ap-method.md&title=%5BNew+AP+method%5D). Specifically, for each model, you are required to put the results and model key given by the `benchmark` method, and the corresponding checkpoint and distances Google Drive link (yes, it has to be on your gdrive). In addition, you are required to indicate if your checkpoints require data normalization, and if they cannot be loaded into the base model implementation. If your checkpoint does not fit the available implementation, please indicate why (you will be just required to add the network implementation, if necessary).
-
-
-# Play with the notebook :game:
-
-![Interactive Plot](media/security_curve.gif)
-
-Open our [Google Colab](https://colab.research.google.com/drive/13Mb9tSXNfivOBfUJJlEuacN84dUT7jqW?usp=sharing), select the models you want to compare, and analyze the security curves!
-
 
 
 # Taxonomy 
