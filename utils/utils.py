@@ -1,5 +1,5 @@
 import os.path
-
+import pickle
 
 from taxonomy.utils import available_aps
 from pathlib import Path
@@ -65,7 +65,7 @@ def load_model(model_key=None, normalization=False):
         model(normalization=normalization)
 
     else:
-        model_gdrive_id, ext = get_gdrive_id(model_key)
+        model_gdrive_id, ext = get_gdrive_id(model_key, kind='model')
         model_path = './apb_pruned_models/' + model_key+ext
         # download the checkpoint
         download_gdrive_new(model_gdrive_id, model_path)
@@ -89,3 +89,21 @@ def load_model(model_key=None, normalization=False):
             pass
 
     return model
+
+
+def load_distance(model_key=None):
+    """
+    This method aims to
+    :param model_key: The model key used in google drive.
+    :param get_distances: If true, loads the distances from gdrive and returns them.
+    :return: model, distances (optional)
+    """
+
+    distance_gdrive_id, ext = get_gdrive_id(model_key, kind='distance')
+    distance_path = './apb_distances/' + model_key+ext
+    # download the checkpoint
+    download_gdrive_new(distance_gdrive_id, distance_path)
+    with open(distance_path, 'rb') as handle:
+        distance = pickle.load(handle)
+
+    return distance

@@ -164,7 +164,7 @@ def test_model_hofmn(model, model_key, ds, data_dir, device, save_dist_path, los
         return rob_acc
 
 
-def benchmark(model, model_key, data_dir, device):
+def benchmark(model, model_key, data_dir, save_dist_path, device):
     # define dataset
     if 'CIFAR10' in model_key:
         ds = 'CIFAR10'
@@ -175,7 +175,7 @@ def benchmark(model, model_key, data_dir, device):
 
     # get aa robustness
     clean_acc, rob_acc_aa = test_model_aa(model, ds, data_dir, device)
-    rob_acc_hofmn = test_model_hofmn(model, model_key, ds, data_dir, device, save_dist_path='', loss='DLR', optimizer='SGD', scheduler='CALR', get_distances=False)
+    rob_acc_hofmn = test_model_hofmn(model, model_key, ds, data_dir, device, save_dist_path=save_dist_path, loss='DLR', optimizer='SGD', scheduler='CALR', get_distances=True)
 
     # print data ready for claim
     print('Results ready for claim! Copy and paste the following data:\n')

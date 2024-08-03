@@ -18,19 +18,32 @@ In this template, you are required to have the information sent to your address 
 Put here the raw JSON Entry received by email. 
 
 ## Evaluation Results of Model n°1
-Please, fill each model's section as follows:
-"model_key_from_benchmark" : ["your_gdrive_link_id", "extension"] 
-Clean Accuracy: xx.xx 
-Robust Accuracy (AA): xx.xx 
-Robust Accuracy (HO-FMN): xx.xx 
+Please, fill each model's section as follows: 
 
-Please note: The gdrive link is of your property, and you will therefore need to make the download available for everyone. Also, only the id of the link is required (e.g., `["1uDif9I7iROSAil8gZG0tJGbHiBrvK--h", ".pt"]`). 
+_Model GDrive:_ "model_key_from_benchmark" : ["your_gdrive_link_id", "extension"] 
+_Distances GDrive:_ "model_key_from_benchmark" : ["your_gdrive_link_id", "extension"] 
+
+_Clean Accuracy:_ xx.xx 
+_Robust Accuracy (AA):_ xx.xx 
+_Robust Accuracy (HO-FMN):_ xx.xx 
+
+Please note: The gdrive links are of your property, and you will therefore need to make the download available for everyone. Also, only the id of the links are required (e.g., `["1uDif9I7iROSAil8gZG0tJGbHiBrvK--h", ".pt"]`). 
 
 ## Evaluation Results of Model n°2
-Same procedure of model n°1
+_Model GDrive:_  
+_Distances GDrive:_ 
+
+_Clean Accuracy:_ xx.xx 
+_Robust Accuracy (AA):_ xx.xx 
+_Robust Accuracy (HO-FMN):_ xx.xx 
 
 ## Evaluation Results of Model n°3 
-Same procedure of model n°1
+_Model GDrive:_  
+_Distances GDrive:_ 
+
+_Clean Accuracy:_ xx.xx 
+_Robust Accuracy (AA):_ xx.xx 
+_Robust Accuracy (HO-FMN):_ xx.xx 
 
 ## Architecture details and normalization 
 Please, write here if, and which of your loaded models need normalization. 

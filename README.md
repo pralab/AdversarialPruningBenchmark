@@ -1,3 +1,6 @@
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/13Mb9tSXNfivOBfUJJlEuacN84dUT7jqW?usp=sharing)
+[![arXiv](https://img.shields.io/badge/arXiv-2310.08073-b31b1b.svg)](https://arxiv.org/abs/2310.08073)
+[![Generic badge](https://img.shields.io/badge/Library-Pytorch-green.svg)](https://pytorch.org/)
 # Adversarial Pruning :scissors: :shield:
 
 Recent work has proposed neural network pruning techniques to reduce the size of a network while preserving its robustness against adversarial examples, i.e., well-crafted inputs designed to mislead predictions.
@@ -19,7 +22,7 @@ For further details, please refer to our [paper](link)
 - Therefore, in our paper, we created a taxonomy of adversarial pruning methods, allowing a clear and systematic analysis of the methods; in addition, to fairly and comparably analyze the AP methods, we created the **adversarial pruning benchmark**.
 
 
-## Hands-on :test_tube:
+## Hands-on :test_tube: 
 To clone our repo, copy and paste this command 
 ```bash 
 git clone 
@@ -104,9 +107,9 @@ However, we encourage authors to **always load the complete suite of models**, w
 Contributing to the benchmark is simple and requires just three steps:
 
 
-**STEP 1**: New Taxonomy entry. Compile the taxonomy of your AP method in our [Google Drive form](https://forms.gle/M4gzq2BEC6CzZhPv7). This will automatically process your AP and send you a corresponding JSON entry via email.
+**STEP 1**: _New Taxonomy entry_. Compile the taxonomy of your AP method in our [Google Drive form](https://forms.gle/M4gzq2BEC6CzZhPv7). This will automatically process your AP and send you a corresponding JSON entry via email.
 
-**STEP 2**: Clone the AP repo and evaluate the checkpoints as follows:
+**STEP 2**: _Run evaluation._ Clone the AP repo and evaluate the checkpoints as follows:
 ```python
 import torch
 from utils.utils import model_key_maker, load_model
@@ -125,8 +128,9 @@ model_key = model_key_maker(ap_method='ap_key', # first entry of json file
                             structure='weights', # if US; or filters and channels if S
                             sparsity_rate='90') # or any other sparsity
 
-# it will automatically print the results, that you should keep 
-benchmark(local_model, model_key, data_dir, device)  
+# it will automatically print the results, that you should keep, and it will save the distances pickle
+save_dist_path='my_path'
+benchmark(local_model, model_key, data_dir, save_dist_path, device)  
 
 # check architecture compliance 
 model = load_model(model_key='base_resnet18', normalization=False)  # or base_vg16
@@ -138,8 +142,14 @@ The benchmark method will test your model using both AA and HO-FMN, and will pri
 By checking the compliance, you can understand if your local model can be loaded into the available base VGG16 and ResNet18 implementation. 
 If not, this should be indicated in Step3.
 
-**STEP 3**: Open the issue. The last step consists in loading the JSON Entry sent via email and the output of the `benchmark` method into the dedicated issue, [New AP method](https://github.com/giorgiopiras/AdversarialPruningBenchmark/issues/new?assignees=&labels=&projects=&template=new-ap-method.md&title=%5BNew+AP+method%5D). Specifically, for each model, you are required to put the results and model key given by the `benchmark` method, and the corresponding checkpoint Google Drive link. In addition, you are required to indicate if your checkpoints require data normalization, and if they cannot be loaded into the base model implementation. If your checkpoint does not fit the available implementation, please indicate why (you will be just required to add the network implementation, if necessary).
+**STEP 3**: _Open the issue_. The last step consists in loading the JSON Entry sent via email and the output of the `benchmark` method into the dedicated issue, [New AP method](https://github.com/giorgiopiras/AdversarialPruningBenchmark/issues/new?assignees=&labels=&projects=&template=new-ap-method.md&title=%5BNew+AP+method%5D). Specifically, for each model, you are required to put the results and model key given by the `benchmark` method, and the corresponding checkpoint and distances Google Drive link (yes, it has to be on your gdrive). In addition, you are required to indicate if your checkpoints require data normalization, and if they cannot be loaded into the base model implementation. If your checkpoint does not fit the available implementation, please indicate why (you will be just required to add the network implementation, if necessary).
 
+
+# Play with the notebook :game:
+
+![Interactive Plot](media/security_curve.gif)
+
+Open our [Google Colab](https://colab.research.google.com/drive/13Mb9tSXNfivOBfUJJlEuacN84dUT7jqW?usp=sharing), select the models you want to compare, and analyze the security curves!
 
 
 
@@ -254,7 +264,7 @@ For a detailed description, please refer to our paper.
 | RADMM        | **82.61/58.04**   | **84.17/58.73**   | **81.56/57.10**   | **77.04/48.41** | **72.51/49.60** | **71.65/45.34** |
 | HARP         | 91.72/45.82   | 92.07/46.80   | 91.03/45.25   | 91.53/44.10 | 89.06/42.45 | 87.89/39.25 |
 | PwoA         | 92.56/41.68   | 92.61/38.69   | 91.42/31.69   | 89.16/39.09 | 89.22/33.89 | 87.17/24.55 |
-|
+
 
 
 ## Citation
@@ -273,4 +283,3 @@ by email at `giorgio.piras@unica.it`.
 - Unify all state_dicts into one single resnet and vgg class. 
 - Make HOFMN try different configs, and add it to the benchmark print function and issue template
 - Change links to PRALAB or whatever...(I mean also in the README (e.g., the issue reference)) 
-- Add benchmark function, and add something to handle normalization (simply, be sure that each model when declared has a parameter normalization set accordingly)
