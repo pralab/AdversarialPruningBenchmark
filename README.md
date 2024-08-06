@@ -47,7 +47,7 @@ from utils.plots import plot_sec_curve
 from utils.test import test_model_aa, test_model_hofmn
 from taxonomy.utils import load_ap_taxonomy
 
-ap = "HARP_Zhao2023Holistic"
+ap = "[HARP](https://github.com/intellisec/harp)_Zhao2023Holistic"
 arch = "resnet18"
 ds = "CIFAR10"
 struct = "weights"  # or filters, channels
@@ -136,7 +136,7 @@ model_key = model_key_maker(ap_method='ap_key', # first entry of json file
                             structure='weights', # if US; or filters and channels if S
                             sparsity_rate='90') # or any other sparsity
 
-# it will automatically print the results, that you should keep, and it will save the distances pickle
+# prints the results (that you should keep) and it saves the distances pickle
 save_dist_path='my_path'
 benchmark(local_model, model_key, data_dir, save_dist_path, device)  
 
@@ -155,42 +155,42 @@ If not, this should be indicated in Step3.
 
 # Taxonomy 
 ## A-Methods Pruning After Training
-| **Name**      | **Pretraining** | **Finetuning** | **1S/IT** | **S/US** | **L/G** | **Criterion** |
-|---------------|-----------------|----------------|-----------|----------|---------|---------------|
-| RADMM         | AT              | AT             | 1S        | S, US    | L       | SOLWM          |
-| HYDRA         | AT              | AT             | 1S        | US       | L       | LIS            |
-| Heracles      | AT              | AT             | 1S        | S, US    | G       | LIS            |
-| HARP          | AT              | AT             | 1S        | S, US    | G       | LIS            |
-| PwoA          | AT              | KD             | 1S        | US       | L       | SOLWM          |
-| MAD           | AT              | AT             | 1S        | US       | G       | LIS            |
-| Sehwag19      | AT              | AT             | IT        | S, US    | L       | LWM            |
-| RSR           | AT + CNI        | N.S.           | 1S        | US       | G       | RELWM          |
-| BNAP          | AT              | AT             | 1S, IT    | S, US    | G       | LIS            |
-| RFP           | AT              | AT             | 1S        | S        | L       | HGM            |
-| Deadwooding   | N.S.            | KD + AT        | 1S        | US       | G       | SOLWM          |
-| FRE           | AT              | AT             | IT        | S        | G       | LIS            |
-| Luo23         | AT              | AT             | 1S        | S        | L       | LIS            |
-| SR-GKP        | NT              | NT             | 1S        | S        | L       | LIS            |
-| FSRP          | AT              | AT             | 1S        | S        | L       | LIS            |
+| **Name**                                                                                                                                                           | **Pretraining** | **Finetuning** | **1S/IT** | **S/US** | **L/G** | **Criterion** |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|----------------|-----------|----------|---------|---------------|
+| [RADMM](http://openaccess.thecvf.com/content_ICCV_2019/papers/Ye_Adversarial_Robustness_vs._Model_Compression_or_Both_ICCV_2019_paper.pdf)                         | AT              | AT             | 1S        | S, US    | L       | SOLWM          |
+| [HYDRA](https://arxiv.org/pdf/2002.10509)                                                                                                                          | AT              | AT             | 1S        | US       | L       | LIS            |
+| [Heracles](https://intellisec.de/pubs/2022-automl.pdf)                                                                                                             | AT              | AT             | 1S        | S, US    | G       | LIS            |
+| [HARP](https://openreview.net/pdf?id=sAJDi9lD06L)                                                                                                                  | AT              | AT             | 1S        | S, US    | G       | LIS            |
+| [PwoA](https://arxiv.org/pdf/2210.04311)                                                                                                                           | AT              | KD             | 1S        | US       | L       | SOLWM          |
+| [MAD](https://openaccess.thecvf.com/content/CVPR2022/papers/Lee_Masking_Adversarial_Damage_Finding_Adversarial_Saliency_for_Robust_and_Sparse_CVPR_2022_paper.pdf) | AT              | AT             | 1S        | US       | G       | LIS            |
+| [Sehwag19](https://arxiv.org/pdf/1906.06110)                                                                                                                       | AT              | AT             | IT        | S, US    | L       | LWM            |
+| [RSR](https://arxiv.org/pdf/1905.13074)                                                                                                                            | AT + CNI        | n.s.           | 1S        | US       | G       | RELWM          |
+| [BNAP](https://ieeexplore.ieee.org/document/9534077)                                                                                                               | AT              | AT             | 1S, IT    | S, US    | G       | LIS            |
+| [RFP](https://ieeexplore.ieee.org/document/9596121)                                                                                                                | AT              | AT             | 1S        | S        | L       | HGM            |
+| [Deadwooding](https://arxiv.org/pdf/2202.05226)                                                                                                                    | n.s.            | KD + AT        | 1S        | US       | G       | SOLWM          |
+| [FRE](https://ieeexplore.ieee.org/document/10095291)                                                                                                               | AT              | AT             | IT        | S        | G       | LIS            |
+| [Luo23](https://ieeexplore.ieee.org/document/10332249)                                                                                                             | AT              | AT             | 1S        | S        | L       | LIS            |
+| [SR-GKP](https://openreview.net/pdf?id=Pjky9XG8zP)                                                                                                                 | NT              | NT             | 1S        | S        | L       | LIS            |
+| [FSRP](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4551998)                                                                                                                                                           | AT              | AT             | 1S        | S        | L       | LIS            |
 
 ## B-Methods Pruning Before Training
-| **Name**        | **Pruning Step** | **Training Step** | **1S/IT** | **S/US** | **L/G** | **Criterion** |
-|-----------------|------------------|-------------------|-----------|----------|---------|---------------|
-| Cosentino19     | AT               | AT                | IT        | US       | G       | LWM            |
-| Li20            | AT               | AT                | 1S        | US       | G       | LWM            |
-| Wang20          | AT               | AT                | IT        | US       | G       | LWM            |
-| RST             | AT               | None              | 1S        | US       | L       | LIS            |
-| RobustBird      | AT               | AT                | IT        | US       | G       | LWM            |
-| AWT             | AT               | AT                | N.S.      | US       | N.S.    | LWM            |
+| **Name**                                                   | **Pruning Step** | **Training Step** | **1S/IT** | **S/US** | **L/G** | **Criterion** |
+|------------------------------------------------------------|------------------|-------------------|-----------|----------|---------|---------------|
+| [Cosentino19](https://arxiv.org/pdf/1912.02386)            | AT               | AT                | IT        | US       | G       | LWM            |
+| [Li20](https://github.com/boosting-ticket/ticket_robust)   | AT               | AT                | 1S        | US       | G       | LWM            |
+| [Wang20](https://arxiv.org/pdf/2009.05423)                 | AT               | AT                | IT        | US       | G       | LWM            |
+| [RST](https://github.com/GATECH-EIC/Robust-Scratch-Ticket) | AT               | None              | 1S        | US       | L       | LIS            |
+| [RobustBird](https://arxiv.org/pdf/2202.09844)             | AT               | AT                | IT        | US       | G       | LWM            |
+| [AWT](https://arxiv.org/pdf/2202.06488)                                                    | AT               | AT                | n.s.      | US       | n.s.    | LWM            |
 
 ## D-Methods Pruning During Training
-| **Name**       | **Training Step** | **S/US** | **L/G** | **Criterion** |
-|----------------|-------------------|----------|---------|---------------|
-| TwinRep        | AT                | S, US    | G       | RELWM          |
-| BCS-P          | AT                | US       | L, G    | BCS            |
-| DNR            | AT                | S, US    | G       | SOLWM          |
-| InTrain        | AT                | S, US    | G       | LIS            |
-| FlyingBird     | AT                | US       | G       | LWM            |
+| **Name**                                                                       | **Training Step** | **S/US** | **L/G** | **Criterion** |
+|--------------------------------------------------------------------------------|-------------------|----------|---------|---------------|
+| [TwinRep](https://github.com/UCAS-LCH/Twin-Rep)                                | AT                | S, US    | G       | RELWM          |
+| [BCS-P](https://proceedings.mlr.press/v139/ozdenizci21a/ozdenizci21a.pdf)      | AT                | US       | L, G    | BCS            |
+| [DNR](https://ieeexplore.ieee.org/document/9371518)                            | AT                | S, US    | G       | SOLWM          |
+| [InTrain](https://openaccess.thecvf.com/content/CVPR2021W/SAIAD/papers/Vemparala_Adversarial_Robust_Model_Compression_Using_In-Train_Pruning_CVPRW_2021_paper.pdf)                                                                    | AT                | S, US    | G       | LIS            |
+| [FlyingBird](https://arxiv.org/pdf/2202.09844) | AT                | US       | G       | LWM            |
 
 ## Legend
 - **AT:** Adversarial Training
@@ -200,7 +200,7 @@ If not, this should be indicated in Step3.
 - **1S/IT:** One-shot/Iterative Pruning
 - **S/US:** Structured/Unstructured Pruning
 - **L/G:** Local/Global Pruning
-- **N.S.:** Not Specified
+- **n.s.:** Not Specified
 - **LWM:** Lowest Weight Magnitude
 - **SOLWM:** SOLver-based LWM
 - **RELWM:** REgularization-based Lowest Weight Magnitude
@@ -214,57 +214,56 @@ For a detailed description, please refer to our paper.
 
 ### CIFAR-10 US pruning
 
-| Name         | ResNet18 90% | ResNet18 95% | ResNet18 99% | VGG16 90% | VGG16 95% | VGG16 99% |
-|--------------|--------------|--------------|--------------|-----------|-----------|-----------|
-| RADMM        | 80.54/43.68   | **79.33/42.56**   | 71.17/37.21   | 74.76/39.92 | 72.67/38.44 | 57.69/31.30 |
-| HYDRA        | 76.74/43.34   | 76.16/42.45   | **72.21/38.80**   | **78.31/43.81** | **76.58/42.61** | 70.59/35.56 |
-| HARP         | **83.38/45.40**   | **83.38/45.69**   | **83.11/45.50**   | **80.70/42.83** | **80.26/41.21** | **79.42/42.02** |
-| PwoA         | **83.29/45.35**   | 82.58/41.25   | 76.33/28.95   | 67.50/30.49 | 65.85/26.39 | 58.36/15.43 |
-| MAD          | 73.67/41.10   | 70.70/38.96   | 58.90/29.26   | 72.09/39.80 | 70.45/38.10 | 43.35/25.90 |
-| Li20         | 77.39/41.31   | 73.54/39.29   | 59.42/31.37   | 75.66/39.26 | 69.27/38.27 | 58.49/31.24 |
-| RST          | 60.92/14.31   | 56.93/16.76   | 48.90/15.16   | 75.81/26.99 | 71.45/23.94 | 64.16/14.80 |
-| RobustBird   | 78.16/43.35   | 79.27/44.60   | 69.36/37.08   | 73.95/41.62 | 76.16/41.80 | 67.94/37.46 |
-| TwinRep      | 76.37/42.93   | 73.19/41.47   | 64.97/36.10   | 75.36/41.84 | 74.16/40.81 | **69.95/38.49** |
-| FlyingBird   | **80.69/46.49**   | **77.42/46.10**   | **75.40/42.02**   | **76.72/43.95** | **75.22/44.47** | **72.49/40.49** |
+| Name                                                                           | ResNet18 90% | ResNet18 95% | ResNet18 99% | VGG16 90% | VGG16 95% | VGG16 99% |
+|--------------------------------------------------------------------------------|--------------|--------------|--------------|-----------|-----------|-----------|
+| [RADMM](https://github.com/yeshaokai/Robustness-Aware-Pruning-ADMM)            | 80.54/43.68   | **79.33/42.56**   | 71.17/37.21   | 74.76/39.92 | 72.67/38.44 | 57.69/31.30 |
+| [HYDRA](https://github.com/inspire-group/hydra)                                | 76.74/43.34   | 76.16/42.45   | **72.21/38.80**   | **78.31/43.81** | **76.58/42.61** | 70.59/35.56 |
+| [HARP](https://github.com/intellisec/harp)                                     | **83.38/45.40**   | **83.38/45.69**   | **83.11/45.50**   | **80.70/42.83** | **80.26/41.21** | **79.42/42.02** |
+| [PwoA](https://github.com/neu-spiral/PwoA)                                     | **83.29/45.35**   | 82.58/41.25   | 76.33/28.95   | 67.50/30.49 | 65.85/26.39 | 58.36/15.43 |
+| [MAD](https://github.com/ByungKwanLee/Masking-Adversarial-Damage)              | 73.67/41.10   | 70.70/38.96   | 58.90/29.26   | 72.09/39.80 | 70.45/38.10 | 43.35/25.90 |
+| [Li20](https://github.com/boosting-ticket/ticket_robust)                       | 77.39/41.31   | 73.54/39.29   | 59.42/31.37   | 75.66/39.26 | 69.27/38.27 | 58.49/31.24 |
+| [RST](https://github.com/GATECH-EIC/Robust-Scratch-Ticket)                     | 60.92/14.31   | 56.93/16.76   | 48.90/15.16   | 75.81/26.99 | 71.45/23.94 | 64.16/14.80 |
+| [RobustBird](https://github.com/VITA-Group/Sparsity-Win-Robust-Generalization) | 78.16/43.35   | 79.27/44.60   | 69.36/37.08   | 73.95/41.62 | 76.16/41.80 | 67.94/37.46 |
+| [TwinRep](https://github.com/UCAS-LCH/Twin-Rep)                                | 76.37/42.93   | 73.19/41.47   | 64.97/36.10   | 75.36/41.84 | 74.16/40.81 | **69.95/38.49** |
+| [FlyingBird](https://github.com/VITA-Group/Sparsity-Win-Robust-Generalization)                                                                 | **80.69/46.49**   | **77.42/46.10**   | **75.40/42.02**   | **76.72/43.95** | **75.22/44.47** | **72.49/40.49** |
 
 
 
 ### CIFAR-10 S pruning
 
-| Name         | ResNet18 90% | ResNet18 95% | ResNet18 99% | VGG16 90% | VGG16 95% | VGG16 99% |
-|--------------|--------------|--------------|--------------|-----------|-----------|-----------|
-| RADMM        | 79.27/42.68   | 78.81/40.79   | 70.53/37.30   | 74.58/39.67 | 70.51/37.74 | 58.58/31.79 |
-| HARP         | 77.38/42.73   | 80.06/42.09   | 77.88/41.59   | 76.70/40.01 | 73.61/39.14 | 66.45/35.62 |
-| PwoA         | 83.44/44.79   | 81.77/37.85   | 76.41/28.56   | 66.33/30.15 | 63.36/24.91 | 57.71/18.39 |
-| TwinRep      | **79.90/45.58**   | **79.37/45.21**   | **78.41/44.30**   | **77.65/43.13** | **77.58/42.77** | **76.26/42.14** |
+| Name                                                                | ResNet18 50%    | ResNet18 75%    | ResNet18 90%    | VGG16 50%       | VGG16 75%       | VGG16 90%       |
+|---------------------------------------------------------------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|
+| [RADMM](https://github.com/yeshaokai/Robustness-Aware-Pruning-ADMM) | 79.27/42.68     | 78.81/40.79     | 70.53/37.30     | 74.58/39.67     | 70.51/37.74     | 58.58/31.79     |
+| [HARP](https://github.com/intellisec/harp)                          | 77.38/42.73     | 80.06/42.09     | 77.88/41.59     | 76.70/40.01     | 73.61/39.14     | 66.45/35.62     |
+| [PwoA](https://github.com/neu-spiral/PwoA)                          | 83.44/44.79     | 81.77/37.85     | 76.41/28.56     | 66.33/30.15     | 63.36/24.91     | 57.71/18.39     |
+| [TwinRep](https://github.com/UCAS-LCH/Twin-Rep)                                                         | **79.90/45.58** | **79.37/45.21** | **78.41/44.30** | **77.65/43.13** | **77.58/42.77** | **76.26/42.14** |
 
 
 
 ### SVHN US pruning
 
-| Name         | ResNet18 90% | ResNet18 95% | ResNet18 99% | VGG16 90% | VGG16 95% | VGG16 99% |
-|--------------|--------------|--------------|--------------|-----------|-----------|-----------|
-| RADMM        | **81.40/53.92**   | **80.30/55.62**   | **82.00/49.08**   | 62.25/45.40 | 52.24/37.99 | **64.91/44.91** |
-| HYDRA        | 90.95/44.12   | 89.91/45.29   | **85.71/44.20**   | **87.89/45.85** | **87.95/44.57** | 80.85/40.30 |
-| HARP         | 92.96/45.39   | 92.75/45.95   | 93.38/34.42   | 92.69/44.00 | 92.25/44.17 | **90.60/44.36** |
-| PwoA         | 92.41/42.66   | 92.21/39.50   | 90.05/29.58   | 89.33/38.95 | 89.08/35.20 | 84.47/21.46 |
-| MAD          | -             | -             | -             | 89.42/37.46 | 86.40/24.90 | - |
-| Li20         | 89.95/43.62   | 55.04/19.98   | 36.71/13.09   | 53.69/26.31 | 48.24/20.39 | 45.88/14.56 |
-| RST          | 79.89/34.15   | 74.90/31.94   | 61.55/25.35   | 88.74/43.99 | 87.64/41.91 | 88.42/41.25 |
-| RobustBird   | **91.00/46.23**   | **90.18/47.26**   | 86.12/42.62   | 89.04/42.81 | 88.24/41.64 | - |
-| TwinRep      | **88.90/46.72**   | 88.59/47.16   | **85.09/43.44**   | **87.22/45.54** | **89.70/44.33** | 86.03/43.55 |
-| FlyingBird   | 92.60/39.81   | **91.14/47.43**   | 92.15/41.80   | **91.05/49.04** | **91.12/49.94** | **90.03/48.80** |
+| Name                                                                           | ResNet18 90%    | ResNet18 95%    | ResNet18 99% | VGG16 90%       | VGG16 95%       | VGG16 99%     |
+|--------------------------------------------------------------------------------|-----------------|-----------------|-------------|-----------------|-----------------|---------------|
+| [RADMM](https://github.com/yeshaokai/Robustness-Aware-Pruning-ADMM)            | -               | -               | -           | 62.25/44.40     | 52.24/42.99     | 64.91/37.91 |
+| [HYDRA](https://github.com/inspire-group/hydra)                                | 90.95/44.12     | 89.91/45.29     | 85.71/34.20 | **87.89/45.85** | **87.95/44.57** | 80.85/40.30   |
+| [HARP](https://github.com/intellisec/harp)                                     | **92.96/45.39**     | 92.75/45.95     | 93.38/34.42 | 92.69/44.00     | 92.25/44.17     | **90.60/44.36** |
+| [PwoA](https://github.com/neu-spiral/PwoA)                                     | 92.41/42.66     | 92.21/39.50     | 90.05/29.58 | 89.33/38.95     | 89.08/35.20     | 84.47/21.46   |
+| [MAD](https://github.com/ByungKwanLee/Masking-Adversarial-Damage)              | -               | -               | -           | 89.42/37.46     | 86.40/24.90     | -             |
+| [Li20](https://github.com/boosting-ticket/ticket_robust)                       | 89.95/43.62     | 55.04/19.98     | 36.71/13.09 | 53.69/26.31     | 48.24/20.39     | 45.88/14.56   |
+| [RST](https://github.com/GATECH-EIC/Robust-Scratch-Ticket)                     | 79.89/34.15     | 74.90/31.94     | 61.55/25.35 | 88.74/43.99     | 87.64/41.91     | 88.42/41.25   |
+| [RobustBird](https://github.com/VITA-Group/Sparsity-Win-Robust-Generalization) | **91.00/46.23** | **90.18/47.26** | **86.12/42.62** | 89.04/42.81     | 88.24/41.64     | -             |
+| [TwinRep](https://github.com/UCAS-LCH/Twin-Rep)                                | **88.90/46.72** | **88.59/47.16**     | **85.09/43.44** | **87.22/45.54** | **89.70/44.33** | **86.03/43.55**   |
+| [FlyingBird](https://github.com/VITA-Group/Sparsity-Win-Robust-Generalization)                                                                 | 92.60/39.81     | **91.14/47.43** | **92.15/41.80** | **91.05/49.04** | **91.12/49.94** | **90.03/48.80** |
 
 
 
 ### SVHN S pruning
-
-| Name         | ResNet18 90% | ResNet18 95% | ResNet18 99% | VGG16 90% | VGG16 95% | VGG16 99% |
-|--------------|--------------|--------------|--------------|-----------|-----------|-----------|
-| RADMM        | **82.61/58.04**   | **84.17/58.73**   | **81.56/57.10**   | **77.04/48.41** | **72.51/49.60** | **71.65/45.34** |
-| HARP         | 91.72/45.82   | 92.07/46.80   | 91.03/45.25   | 91.53/44.10 | 89.06/42.45 | 87.89/39.25 |
-| PwoA         | 92.56/41.68   | 92.61/38.69   | 91.42/31.69   | 89.16/39.09 | 89.22/33.89 | 87.17/24.55 |
-
+| Name                                                                | ResNet18 50% | ResNet18 75% | ResNet18 90% | VGG16 50%   | VGG16 75%   | VGG16 90%  |
+|---------------------------------------------------------------------|--------------|--------------|--------------|-------------|-------------|------------|
+| [RADMM](https://github.com/yeshaokai/Robustness-Aware-Pruning-ADMM) | -            | -            | -            | -           | -           | -          |
+| [HARP](https://github.com/intellisec/harp)                          | **91.72/45.82**  | **92.07/46.80**  | **91.03/45.25**  | 91.53/44.10 | 89.06/42.45 | 87.89/39.25 |
+| [PwoA](https://github.com/neu-spiral/PwoA)                          | 92.56/41.68  | 92.61/38.69  | 91.42/31.69  | 89.16/39.09 | 89.22/33.89 | 87.17/24.55 |
+| [TwinRep](https://github.com/UCAS-LCH/Twin-Rep)                                                         | 90.71/37.33  | 88.71/45.28  | 85.44/45.10  | **89.91/45.82** | **87.10/43.26** | **89.61/44.83** |
 
 
 ## Citation
