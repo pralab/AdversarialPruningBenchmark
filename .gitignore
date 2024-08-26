@@ -6,3 +6,5 @@ ap_models
 ap_distances
 todo.txt
 HOFMN
+__pycache--/
+**/_pycache__/
