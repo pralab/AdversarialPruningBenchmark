@@ -1,7 +1,6 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from models.operator.mask import Conv2d_mask, Linear_mask
 
 import torch
 from torch.nn import Conv2d, Linear, Parameter

@@ -1,4 +1,4 @@
-from utils.utils import load_model, model_key_maker
+from utils.utils import load_model, model_key_maker, load_distance
 from utils.plots import plot_sec_curve
 from utils.test import test_model_aa, test_model_hofmn
 from taxonomy.utils import load_ap_taxonomy
@@ -16,11 +16,12 @@ model_key = model_key_maker(ap_method=ap,
                             structure=struct,
                             sparsity_rate=sr)
 
-# when get_distances, the distances computed with the best config from HO-FMN is returned in addition to the model
+# when get_distances, the distances computed with the best config from HOFMN is returned in addition to the model
 model = load_model(model_key=model_key)
+dist = load_distance(model_key=model_key)
 
 # test the model
-rob_acc_aa = test_model_aa(model)
+rob_acc_aa = test_model_aa(model=model, ds=ds, data_dir='AdversarialPruningBenchmark', device='cpu')
 rob_acc_hofmn, distances = test_model_hofmn(model, loss='DLR', optimizer='SGD', scheduler='CALR', get_distances=True)
 
 # plot security curve

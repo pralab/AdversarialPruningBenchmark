@@ -60,7 +60,7 @@ model_key = model_key_maker(ap_method=ap,
                             structure=struct,
                             sparsity_rate=sr)
 
-# when get_distances, the distances computed with the best config from HO-FMN is returned in addition to the model
+# when get_distances, the distances computed with the best config from HOFMN is returned in addition to the model
 model = load_model(model_key=model_key)
 
 # test the model 
@@ -73,7 +73,7 @@ plot_sec_curve(distances, names, title=model_key+'DLR_SGD_CALR', save=False)
 
 print(f'Model {model_key} clean accuracy: {clean_acc}')
 print(f'Model {model_key} AA robust accuracy: {rob_acc_aa}')
-print(f'Model {model_key} HO-FMN robust accuracy: {rob_acc_hofmn}')
+print(f'Model {model_key} HOFMN robust accuracy: {rob_acc_hofmn}')
 print(f'Within the taxonomy, here are the AP entries: {load_ap_taxonomy(ap)}')
 
 ```
@@ -96,7 +96,7 @@ rob_acc_hofmn, distances = test_model_hofmn(model=local_model, model_key=model_k
 
 print(f'Clean accuracy: {clean_acc}')
 print(f'AA robust accuracy: {rob_acc_aa}')
-print(f'HO-FMN robust accuracy: {rob_acc_hofmn}')
+print(f'HOFMN robust accuracy: {rob_acc_hofmn}')
 
 # plot security curve 
 names = ['my_model']

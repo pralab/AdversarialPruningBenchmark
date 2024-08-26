@@ -7,7 +7,8 @@ import torch.utils.data as data
 import torchvision.datasets as datasets
 import torchvision.transforms as transforms
 
-from data import DataLoader
+from torch.utils.data import DataLoader
+
 from HOFMN.src.attacks.fmn import FMN
 from HOFMN.src.ho_fmn.ho_fmn import HOFMN
 
@@ -73,7 +74,7 @@ def test_model_aa(model, ds, data_dir, device):
 
 
 def test_model_hofmn(model, model_key, ds, data_dir, device, save_dist_path, loss='DLR', optimizer='SGD', scheduler='CALR', get_distances=True):
-    # HO-FMN configuration
+    # HOFMN configuration
     steps = 100  # The number of FMN attack iterations
     trials = 32  # Number of HO optimization trials
     tuning_bs = 64  # Batch size for the tuning

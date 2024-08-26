@@ -1,0 +1,4 @@
+pip install git+https://github.com/fra31/auto-attack
+#git clone https://github.com/pralab/HO-FMN
+pip install torch
+pip install ax-platform

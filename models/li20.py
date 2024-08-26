@@ -12,7 +12,6 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from pruning.utils import to_var
 from torch.autograd import Variable
 
 
