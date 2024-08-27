@@ -278,7 +278,3 @@ For a detailed description, please refer to our paper.
 Feel free to contact us about anything related to our benchmark by creating an issue, a pull request or
 by email at `giorgio.piras@unica.it`.
 
-## TODO 
-- Unify all state_dicts into one single resnet and vgg class. 
-- Make HOFMN try different configs, and add it to the benchmark print function and issue template
-- Change links to PRALAB or whatever...(I mean also in the README (e.g., the issue reference)) 
