@@ -6,7 +6,6 @@ Reference:
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from advertorch.utils import NormalizeByChannelMeanStd
 
 __all__ = ['ResNet18', 'ResNet34', 'ResNet50', 'ResNet101', 'ResNet152', 'SmallDenseResNet18', 'CheckSmallDense']
 
@@ -73,8 +72,7 @@ class PreActResNet(nn.Module):
         self.in_planes = 64
 
         # default normalization is for CIFAR10
-        self.normalize = NormalizeByChannelMeanStd(
-            mean=[0.4914, 0.4822, 0.4465], std=[0.2470, 0.2435, 0.2616])
+        self.normalize = transforms.Normalize(mean=[0.4914, 0.4822, 0.4465], std=[0.2470, 0.2435, 0.2616])
 
         self.conv1 = nn.Conv2d(3, 64, kernel_size=3, stride=1, padding=1, bias=False)
         self.layer1 = self._make_layer(block, 64, num_blocks[0], stride=1)
@@ -117,8 +115,7 @@ class SmallDensePreActResNet(nn.Module):
         # self.normalize = NormalizeByChannelMeanStd(
         # mean=[0.4914, 0.4822, 0.4465], std=[0.2470, 0.2435, 0.2616])
         # default normalization is for SVHN
-        self.normalize = NormalizeByChannelMeanStd(
-            mean=[0.43090966, 0.4302428, 0.44634357], std=[0.19759192, 0.20029082, 0.19811132])
+        self.normalize = transforms.Normalize(mean=[0.43090966, 0.4302428, 0.44634357], std=[0.19759192, 0.20029082, 0.19811132])
 
         self.conv1 = nn.Conv2d(3, self.planes_list[0], kernel_size=3, stride=1, padding=1, bias=False)
         self.layer1 = self._make_layer(block, self.planes_list[0], num_blocks[0], stride=1)
@@ -216,8 +213,8 @@ class VGG(nn.Module):
         self.classifier = nn.Linear(512, num_classes)
 
         # default normalization is for CIFAR10
-        self.normalize = NormalizeByChannelMeanStd(
-            mean=[0.4914, 0.4822, 0.4465], std=[0.2470, 0.2435, 0.2616])
+        self.normalize = transforms.Normalize(mean=[0.4914, 0.4822, 0.4465], std=[0.2470, 0.2435, 0.2616])
+
 
     def forward(self, x):
         x = self.normalize(x)
