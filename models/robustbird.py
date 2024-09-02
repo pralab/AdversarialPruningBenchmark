@@ -6,6 +6,7 @@ Reference:
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import torchvision.transforms as transforms
 
 __all__ = ['ResNet18', 'ResNet34', 'ResNet50', 'ResNet101', 'ResNet152', 'SmallDenseResNet18', 'CheckSmallDense']
 

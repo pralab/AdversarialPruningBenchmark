@@ -33,7 +33,7 @@ Open our [Google Colab](https://colab.research.google.com/drive/13Mb9tSXNfivOBfU
 
 To clone our repo, copy and paste this command 
 ```bash 
-git clone 
+git clone https://github.com/pralab/AdversarialPruningBenchmark
 ```
 
 ### Test a pruned model already loaded in the benchmark :hammer_and_wrench:
