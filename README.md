@@ -43,7 +43,7 @@ from utils.plots import plot_sec_curve
 from utils.test import test_model_aa, test_model_hofmn
 from taxonomy.utils import load_ap_taxonomy
 
-ap = "[HARP](https://github.com/intellisec/harp)_Zhao2023Holistic"
+ap = "HARP_Zhao2023Holistic"
 arch = "resnet18"
 ds = "CIFAR10"
 struct = "weights"  # or filters, channels
