@@ -3,16 +3,12 @@
 [![Generic badge](https://img.shields.io/badge/Library-Pytorch-green.svg)](https://pytorch.org/)
 # Adversarial Pruning :scissors: :shield:
 
-Recent work has proposed neural network pruning techniques to reduce the size of a network while preserving its robustness against adversarial examples, i.e., well-crafted inputs designed to mislead predictions.
-These methods, which we refer to as **adversarial pruning** methods, involve complex and articulated designs, making it difficult to analyze the differences and establish a fair and accurate comparison.
-In this work, we overcome these issues by reviewing current adversarial pruning methods and proposing a novel taxonomy to categorize them based on two main dimensions: the _pipeline_, defining _when_ to prune; and the _specifics_, defining _how_ to prune. 
-We then highlight the limitations of current empirical analyses and propose a novel, fair evaluation benchmark to address them. 
-We finally conduct an empirical re-evaluation of current adversarial pruning methods and discuss the results, showing how top-performing adversarial pruning methods often share similarities.
+Recent work has proposed neural network pruning techniques to reduce the size of a network while preserving robustness against adversarial examples, i.e., well-crafted inputs inducing a misclassification. These methods, which we refer to as adversarial pruning methods, involve complex and articulated designs, making it difficult to analyze the differences and establish a fair and accurate comparison. In this work, we overcome these issues by surveying current adversarial pruning methods and proposing a novel taxonomy to categorize them based on two main dimensions: the pipeline, defining when to prune; and the specifics, defining how to prune. We then highlight the limitations of current empirical analyses and propose a novel, fair evaluation benchmark to address them. We finally conduct an empirical re-evaluation of current adversarial pruning methods and discuss the results, highlighting the shared traits of top-performing adversarial pruning methods, as well as common issues.
 
 **Authors:**
 Giorgio Piras (University of Cagliari, University of Roma La Sapienza), Maura Pintor (University of Cagliari), Ambra Demontis (University of Cagliari), Battista Biggio (University of Cagliari), Giorgio Giacinto (University of Cagliari), Fabio Roli (University of Cagliari, University of Genova)
 
-For further details, please refer to our [paper](link)
+For further details, please refer to our [paper](https://arxiv.org/pdf/2409.01249)
 
 ## Main idea 
 - This repository contains the code for the Adversarial Pruning (AP) Benchmark, which aims to make AP methods be evaluated in a fair, comparable way.
@@ -275,9 +271,6 @@ For a detailed description, please refer to our paper.
       author={Giorgio Piras and Maura Pintor and Ambra Demontis and Battista Biggio and Giorgio Giacinto and Fabio Roli},
       journal={arXiv preprint arXiv:2409.01249},
       year={2024},
-
-
-
 }
 
 ```
