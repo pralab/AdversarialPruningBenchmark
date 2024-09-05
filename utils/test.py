@@ -73,11 +73,15 @@ def test_model_aa(model, ds, data_dir, device):
     return clean_acc, rob_acc
 
 
-def test_model_hofmn(model, model_key, ds, data_dir, device, save_dist_path, loss='DLR', optimizer='SGD', scheduler='CALR', get_distances=True):
+def test_model_hofmn(model, model_key, ds, data_dir, device, save_dist_path=None, loss='DLR', optimizer='SGD', scheduler='CALR', get_distances=True):
     # HOFMN configuration
     steps = 100  # The number of FMN attack iterations
     trials = 32  # Number of HO optimization trials
     tuning_bs = 64  # Batch size for the tuning
+
+    # define transform set
+    transform_list = [transforms.ToTensor()]
+    transform_chain = transforms.Compose(transform_list)
 
     # define dataset
     if ds == 'CIFAR10':
@@ -111,7 +115,7 @@ def test_model_hofmn(model, model_key, ds, data_dir, device, save_dist_path, los
     tuning_samples = tuning_bs * tuning_trials
 
     attack_bs = 128  # Attack batch size
-    attack_steps = 200  # Attack steps
+    attack_steps = 200  # Attack steps 200
 
     # define new set of points #TODO check
     subset_indices = list(range(tuning_samples, tuning_samples + attack_bs))
@@ -153,7 +157,7 @@ def test_model_hofmn(model, model_key, ds, data_dir, device, save_dist_path, los
             norms = (tuned_best_adv.cpu() - images.cpu()).flatten(1).norm(torch.inf, dim=1)
             distances.extend(norms)
 
-    rob_acc = (distances > 8 / 255).float().mean().item()
+    rob_acc = (torch.tensor(distances) > 8 / 255).float().mean().item()
 
     if get_distances:
         path_name = f'{save_dist_path}/{model_key}.pickle'

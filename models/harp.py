@@ -130,7 +130,7 @@ def ResNet18():
     linear_layer = SubnetLinear
     init_type = 'kaiming_normal'
     assert init_type == "kaiming_normal", "only supporting default init for Resnets"
-    return ResNet(conv_layer, linear_layer, BasicBlock, num_blocks=[2, 2, 2, 2],  mean=[0, 0, 0], std=[1, 1, 1])
+    return ResNet(conv_layer, linear_layer, BasicBlock, num_blocks=[2, 2, 2, 2],  mean=[0, 0, 0], std=[1, 1, 1], prune_reg='weight', task_mode='harp_finetune')
 
 
 import torch

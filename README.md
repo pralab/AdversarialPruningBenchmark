@@ -1,7 +1,7 @@
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/13Mb9tSXNfivOBfUJJlEuacN84dUT7jqW?usp=sharing)
 [![arXiv](https://img.shields.io/badge/arXiv-2409.01249-b31b1b.svg)](https://arxiv.org/abs/2409.01249)
 [![Generic badge](https://img.shields.io/badge/Library-Pytorch-green.svg)](https://pytorch.org/)
-# Adversarial Pruning :scissors: :shield:
+# Adversarial Pruning: A Survey and Benchmark of Pruning Methods for Adversarial Robustness :scissors: :shield:
 
 Recent work has proposed neural network pruning techniques to reduce the size of a network while preserving robustness against adversarial examples, i.e., well-crafted inputs inducing a misclassification. These methods, which we refer to as adversarial pruning methods, involve complex and articulated designs, making it difficult to analyze the differences and establish a fair and accurate comparison. In this work, we overcome these issues by surveying current adversarial pruning methods and proposing a novel taxonomy to categorize them based on two main dimensions: the pipeline, defining when to prune; and the specifics, defining how to prune. We then highlight the limitations of current empirical analyses and propose a novel, fair evaluation benchmark to address them. We finally conduct an empirical re-evaluation of current adversarial pruning methods and discuss the results, highlighting the shared traits of top-performing adversarial pruning methods, as well as common issues.
 
@@ -43,7 +43,7 @@ from utils.plots import plot_sec_curve
 from utils.test import test_model_aa, test_model_hofmn
 from taxonomy.utils import load_ap_taxonomy
 
-ap = "HARP_Zhao2023Holistic"
+ap = "HYDRA_Sehwag2020Hydra"
 arch = "resnet18"
 ds = "CIFAR10"
 struct = "weights"  # or filters, channels
@@ -56,12 +56,13 @@ model_key = model_key_maker(ap_method=ap,
                             structure=struct,
                             sparsity_rate=sr)
 
-# when get_distances, the distances computed with the best config from HOFMN is returned in addition to the model
+# get model and distances given their unique key
 model = load_model(model_key=model_key)
+distances = load_distance(model_key=model_key)
 
 # test the model 
 clean_acc, rob_acc_aa = test_model_aa(model, dataset=ds, data_dir='my_datadir/CIFAR10', device='cuda:0')
-rob_acc_hofmn, distances = test_model_hofmn(model, model_key=model_key, dataset=ds, data_dir='my_datadir/CIFAR10', device='cuda:0', loss='DLR', optimizer='SGD', scheduler='CALR', get_distances=True)
+rob_acc_hofmn, _ = test_model_hofmn(model, model_key=model_key, dataset=ds, data_dir='my_datadir/CIFAR10', device='cuda:0', loss='DLR', optimizer='SGD', scheduler='CALR', get_distances=False)
 
 # plot security curve (you can compare even more models together)
 names = [model_key]  # add a name for each model to appear in the legend
@@ -268,7 +269,8 @@ For a detailed description, please refer to our paper.
 ```bibtex
 @article{piras2024adversarialpruningsurveybenchmark,
       title={Adversarial Pruning: A Survey and Benchmark of Pruning Methods for Adversarial Robustness}, 
-      author={Giorgio Piras and Maura Pintor and Ambra Demontis and Battista Biggio and Giorgio Giacinto and Fabio Roli},
+      author={Giorgio Piras and Maura Pintor and Ambra Demontis and Battista Biggio 
+      and Giorgio Giacinto and Fabio Roli},
       journal={arXiv preprint arXiv:2409.01249},
       year={2024},
 }

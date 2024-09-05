@@ -95,8 +95,8 @@ cfgs = {
 }
 
 
-def vgg16_bn(normalization):
+def vgg16_bn():
     n = [i for i in cfgs["16"] if isinstance(i, int)][-1]
-    model = VGG(make_layers(cfgs["16"], nn.Conv2d, batch_norm=True), n, nn.Linear, normalization)
+    model = VGG(make_layers(cfgs["16"], nn.Conv2d, batch_norm=True), n, nn.Linear)
     initialize_weights(model, init_type='kaiming_normal')
     return model

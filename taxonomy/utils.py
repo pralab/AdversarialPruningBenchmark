@@ -22,5 +22,22 @@ def available_aps(model_key):
     return model_key in cut_keys
 
 
+import json
+
+
 def load_ap_taxonomy(ap):
-    pass
+    # cut the ap key to only the relevant part
+    ap_prefix = "_".join(ap.split("_")[:2])
+
+    # load the taxonomy from the JSON file
+    with open('taxonomy/taxonomy.json', 'r') as f:
+        taxonomy = json.load(f)
+
+    # find and return the matching entry
+    for entry in taxonomy:
+        if entry.get('ap_key') == ap_prefix:
+            return entry
+
+    # if no matching entry is found, return None or raise an error
+    return None
+

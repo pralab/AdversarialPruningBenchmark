@@ -13,7 +13,7 @@ def plot_sec_curve(list_of_distances, names, title, save=False):
     # number of models
     n = len(names)
     # define plot
-    figure, ax = plt.subplots(1, 1, figsize=(7, 5), dpi=1000)
+    figure, ax = plt.subplots(1, 1, figsize=(10, 5), dpi=1000)
 
     # get accuracy and robustness
     rob_accs = [(torch.tensor(norms) > 8 / 255).float().mean().item() for norms in list_of_distances]
@@ -35,8 +35,7 @@ def plot_sec_curve(list_of_distances, names, title, save=False):
     ax.set_xlabel('Perturbation norm')
     ax.set_ylabel('Robust Accuracy')
     ax.set_title(title)
+    plt.savefig(title)
     plt.show()
 
-    if save:
-        plt.savefig(title)
 

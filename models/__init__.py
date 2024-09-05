@@ -1,10 +1,10 @@
 # hydra models
-from .harp import vgg16_bn as HARP_Zhao2023Holistic_V16
-from .harp import ResNet18 as HARP_Zhao2023Holistic_R18
+from .base_vgg16 import vgg16_bn as HARP_Zhao2023Holistic_V16
+from .base_resnet18 import resnet18 as HARP_Zhao2023Holistic_R18
 
 # harp models
-from .hydra import vgg16_bn as HYDRA_Sehwag2020Hydra_V16
-from .hydra import resnet18 as HYDRA_Sehwag2020Hydra_R18
+from .base_vgg16 import vgg16_bn as HYDRA_Sehwag2020Hydra_V16
+from .base_resnet18 import resnet18 as HYDRA_Sehwag2020Hydra_R18
 
 from .radmm import ResNet18 as resnet18_radmm
 from .radmm import VGG as vgg16_radmm
@@ -15,8 +15,8 @@ from .twinrep import vgg16 as vgg16_twinrep
 from .robustbird import ResNet18 as resnet18_robustbird
 from .robustbird import vgg16_bn as vgg16_robustbird
 
-from .flyingbird import ResNet18 as resnet18_flyingbird
-from .flyingbird import vgg16_bn as vgg16_flyingbird
+from .flyingbird import ResNet18 as FlyingBird_Chen2021Sparsity_R18
+from .flyingbird import vgg16_bn as FlyingBird_Chen2021Sparsity_V16
 
 # mad models
 from .mad import VGG as vgg16_mad

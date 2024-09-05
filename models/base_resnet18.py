@@ -113,6 +113,6 @@ class ResNet(nn.Module):
 
 
 # NOTE: Only supporting default (kaiming_init) initializaition.
-def resnet18(normalization):
-    return ResNet(nn.Conv2d, nn.Linear, BasicBlock, [2, 2, 2, 2], normalization)
+def resnet18():
+    return ResNet(nn.Conv2d, nn.Linear, BasicBlock, [2, 2, 2, 2])
 

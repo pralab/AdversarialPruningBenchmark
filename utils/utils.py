@@ -87,14 +87,17 @@ def load_model(model_key=None, normalization=False):
         model = models.__dict__[ap_arch]()
 
         # load checkpoint
-        try:
-            model.load_state_dict(checkpoint['state_dict'], strict=True)
-        except KeyError:
-            pass
-        try:
-            model.load_state_dict(checkpoint['net'], strict=True)
-        except KeyError:
-            pass
+        if 'FlyingBird' in ap_arch:
+            model.load_state_dict(checkpoint['state_dict'], strict=False)
+        else:
+            try:
+                model.load_state_dict(checkpoint['state_dict'], strict=True)
+            except KeyError:
+                pass
+            try:
+                model.load_state_dict(checkpoint['net'], strict=True)
+            except KeyError:
+                pass
 
     return model
 
