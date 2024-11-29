@@ -10,6 +10,9 @@ Giorgio Piras (University of Cagliari, University of Roma La Sapienza), Maura Pi
 
 For further details, please refer to our [paper](https://arxiv.org/pdf/2409.01249)
 
+## Latest News 
+- Added the ImageNet leaderboard for the ResNet50 architecture.
+
 ## Main idea 
 - This repository contains the code for the Adversarial Pruning (AP) Benchmark, which aims to make AP methods be evaluated in a fair, comparable way.
 
@@ -261,6 +264,11 @@ For a detailed description, please refer to our paper.
 | [HARP](https://github.com/intellisec/harp)                          | **91.72/45.82**  | **92.07/46.80**  | **91.03/45.25**  | 91.53/44.10 | 89.06/42.45 | 87.89/39.25 |
 | [PwoA](https://github.com/neu-spiral/PwoA)                          | 92.56/41.68  | 92.61/38.69  | 91.42/31.69  | 89.16/39.09 | 89.22/33.89 | 87.17/24.55 |
 | [TwinRep](https://github.com/UCAS-LCH/Twin-Rep)                                                         | 90.71/37.33  | 88.71/45.28  | 85.44/45.10  | **89.91/45.82** | **87.10/43.26** | **89.61/44.83** |
+
+### ImageNet US pruning 
+
+### ImageNet S pruning 
+
 
 
 ## Citation
