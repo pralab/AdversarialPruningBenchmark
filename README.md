@@ -299,5 +299,5 @@ and by Fondazione di Sardegna under the project [TrustML: Towards Machine Learni
 <img src="media/SERICS.png" alt="serics" style="width:200px;"/> &nbsp;&nbsp; 
 <img src="media/sec4AI4sec.png" alt="sec4ai4sec" style="width:70px;"/> &nbsp;&nbsp; 
 <img src="media/elsa.jpg" alt="sec4ai4sec" style="width:70px;"/> &nbsp;&nbsp;
-<img src="media/fondazione-sardegna.png" alt="fondazione_sardegna" style="width:150px;"/>; 
+<img src="media/fondazione-sardegna.png" alt="fondazione_sardegna" style="width:150px;"/>
 <img src="media/FundedbytheEU.png" alt="LInf" style="width:240px;"/>
