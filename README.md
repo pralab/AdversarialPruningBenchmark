@@ -289,3 +289,15 @@ For a detailed description, please refer to our paper.
 Feel free to contact us about anything related to our benchmark by creating an issue, a pull request or
 by email at `giorgio.piras@unica.it`.
 
+## Acknowledgements
+The Adversarial Pruning Benchmark has been partially supported 
+by project [SERICS](https://serics.eu/) (PE00000014) under the NRRP MUR program funded by the EU - NGEU; 
+by the European Union’s Horizon Europe Research and Innovation Programme under the project [Sec4AI4Sec - Cybersecurity for AI-Augmented Systems](https://www.sec4ai4sec-project.eu), grant agreement No 101120393; 
+by the European Union’s Horizon Europe Research and Innovation Programme under the project [ELSA – European Lighthouse on Secure and Safe AI](https://elsa-ai.eu), grant agreement No. 101070617; 
+and by Fondazione di Sardegna under the project [TrustML: Towards Machine Learning that Humans Can Trust](https://www.fondazionedisardegna.it/), CUP: F73C22001320007.
+
+<img src="ack/media/SERICS.png" alt="serics" style="width:200px;"/> &nbsp;&nbsp; 
+<img src="ack/media/sec4AI4sec.png" alt="sec4ai4sec" style="width:70px;"/> &nbsp;&nbsp; 
+<img src="ack/media/elsa.jpg" alt="sec4ai4sec" style="width:70px;"/> &nbsp;&nbsp;
+<img src="ack/media/fondazione-sardegna.png" alt="fondazione_sardegna" style="width:150px;"/>; 
+<img src="ack/images/FundedbytheEU.png" alt="LInf" style="width:240px;"/>
