@@ -296,8 +296,8 @@ by the European Union’s Horizon Europe Research and Innovation Programme under
 by the European Union’s Horizon Europe Research and Innovation Programme under the project [ELSA – European Lighthouse on Secure and Safe AI](https://elsa-ai.eu), grant agreement No. 101070617; 
 and by Fondazione di Sardegna under the project [TrustML: Towards Machine Learning that Humans Can Trust](https://www.fondazionedisardegna.it/), CUP: F73C22001320007.
 
-<img src="ack/media/SERICS.png" alt="serics" style="width:200px;"/> &nbsp;&nbsp; 
-<img src="ack/media/sec4AI4sec.png" alt="sec4ai4sec" style="width:70px;"/> &nbsp;&nbsp; 
-<img src="ack/media/elsa.jpg" alt="sec4ai4sec" style="width:70px;"/> &nbsp;&nbsp;
-<img src="ack/media/fondazione-sardegna.png" alt="fondazione_sardegna" style="width:150px;"/>; 
-<img src="ack/images/FundedbytheEU.png" alt="LInf" style="width:240px;"/>
+<img src="media/SERICS.png" alt="serics" style="width:200px;"/> &nbsp;&nbsp; 
+<img src="media/sec4AI4sec.png" alt="sec4ai4sec" style="width:70px;"/> &nbsp;&nbsp; 
+<img src="media/elsa.jpg" alt="sec4ai4sec" style="width:70px;"/> &nbsp;&nbsp;
+<img src="media/fondazione-sardegna.png" alt="fondazione_sardegna" style="width:150px;"/>; 
+<img src="media/FundedbytheEU.png" alt="LInf" style="width:240px;"/>
