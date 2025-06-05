@@ -1,25 +1,29 @@
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/13Mb9tSXNfivOBfUJJlEuacN84dUT7jqW?usp=sharing)
+[![Generic badge](https://img.shields.io/badge/Elsevier-Pattern_Recognition-orange.svg)](https://doi.org/10.1016/j.patcog.2025.111788)
 [![arXiv](https://img.shields.io/badge/arXiv-2409.01249-b31b1b.svg)](https://arxiv.org/abs/2409.01249)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/13Mb9tSXNfivOBfUJJlEuacN84dUT7jqW?usp=sharing)
 [![Generic badge](https://img.shields.io/badge/Library-Pytorch-green.svg)](https://pytorch.org/)
+
 # Adversarial Pruning: A Survey and Benchmark of Pruning Methods for Adversarial Robustness :scissors: :shield:
 
-Recent work has proposed neural network pruning techniques to reduce the size of a network while preserving robustness against adversarial examples, i.e., well-crafted inputs inducing a misclassification. These methods, which we refer to as adversarial pruning methods, involve complex and articulated designs, making it difficult to analyze the differences and establish a fair and accurate comparison. In this work, we overcome these issues by surveying current adversarial pruning methods and proposing a novel taxonomy to categorize them based on two main dimensions: the pipeline, defining when to prune; and the specifics, defining how to prune. We then highlight the limitations of current empirical analyses and propose a novel, fair evaluation benchmark to address them. We finally conduct an empirical re-evaluation of current adversarial pruning methods and discuss the results, highlighting the shared traits of top-performing adversarial pruning methods, as well as common issues.
+Recent work has proposed neural network pruning techniques to reduce the size of a network while preserving robustness against adversarial examples, i.e., well-crafted inputs inducing a misclassification. These methods, which we refer to as adversarial pruning methods, involve complex and articulated designs, making it difficult to analyze the differences and establish a fair and accurate comparison. In this work, we overcome these issues by surveying current adversarial pruning methods and proposing a novel robustness-oriented taxonomy to categorize them based on two main dimensions: the pipeline, defining when to prune; and the specifics, defining how to prune. We then highlight the limitations of current empirical analyses and propose a novel, fair evaluation benchmark to address them. We finally conduct an empirical re-evaluation of current adversarial pruning methods and discuss the results, highlighting the shared traits of top-performing adversarial pruning methods, as well as common issues.
 
 **Authors:**
-Giorgio Piras (University of Cagliari, University of Roma La Sapienza), Maura Pintor (University of Cagliari), Ambra Demontis (University of Cagliari), Battista Biggio (University of Cagliari), Giorgio Giacinto (University of Cagliari), Fabio Roli (University of Cagliari, University of Genova)
+Giorgio Piras (University of Cagliari), Maura Pintor (University of Cagliari), Ambra Demontis (University of Cagliari), Battista Biggio (University of Cagliari), Giorgio Giacinto (University of Cagliari), Fabio Roli (University of Cagliari, University of Genova)
 
-For further details, please refer to our [paper](https://arxiv.org/pdf/2409.01249)
+For further details, please refer to our paper accepted at [Pattern Recognition Journal](https://doi.org/10.1016/j.patcog.2025.111788) or its [arxiv version](https://arxiv.org/pdf/2409.01249).
 
 ## Latest News 
+- Paper accepted at Pattern Recognition Journal!
 - Added the ImageNet leaderboard for the ResNet50 architecture.
 
 ## Main idea 
-- This repository contains the code for the Adversarial Pruning (AP) Benchmark, which aims to make AP methods be evaluated in a fair, comparable way.
+- This repository contains the code for the Adversarial Pruning (AP) Benchmark, which aims to make AP methods be evaluated in a fair and comparable way.
 
-- APs represent all those pruning methods whose goal is to prune a neural network while preserving/inducing as much robustness against adversarial attacks as possible. However, their designs are often complex and diverse, making it difficult to understand what makes an AP method successful.
+- APs represent all those methods whose goal is to prune a neural network while preserving/inducing as much robustness against adversarial attacks as possible. However, their designs are often complex and diverse, making it difficult to understand what makes an AP method successful.
 
 - Therefore, in our paper, we created a taxonomy of adversarial pruning methods, allowing a clear and systematic analysis of the methods; in addition, to fairly and comparably analyze the AP methods, we created the **adversarial pruning benchmark**.
 
+- Here, you will find the checkpoints of state-of-the-art AP methods, the analysis of their designs as per our taxonomy, and a fair adversarial robustness evaluation benchmark!
 
 ## Play with the notebook :video_game:
 
@@ -275,16 +279,22 @@ For a detailed description, please refer to our paper.
 
 
 ```bibtex
-@article{piras2024adversarialpruningsurveybenchmark,
-      title={Adversarial Pruning: A Survey and Benchmark of Pruning Methods for Adversarial Robustness}, 
-      author={Giorgio Piras and Maura Pintor and Ambra Demontis and Battista Biggio 
-      and Giorgio Giacinto and Fabio Roli},
-      journal={arXiv preprint arXiv:2409.01249},
-      year={2024},
-}
+@article{Piras_2025,
+   title={Adversarial pruning: A survey and benchmark of pruning methods for adversarial robustness},
+   volume={168},
+   ISSN={0031-3203},
+   url={http://dx.doi.org/10.1016/j.patcog.2025.111788},
+   DOI={10.1016/j.patcog.2025.111788},
+   journal={Pattern Recognition},
+   publisher={Elsevier BV},
+   author={Piras, Giorgio and Pintor, Maura and Demontis, Ambra and Biggio, Battista and Giacinto, Giorgio and Roli, Fabio},
+   year={2025},
+   month=dec, pages={111788} }
+
 
 ```
 
+[![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fpralab%2FAdversarialPruningBenchmark&label=Visitors%20Today&countColor=%23263759)](https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fpralab%2FAdversarialPruningBenchmark)
 ## Contact
 Feel free to contact us about anything related to our benchmark by creating an issue, a pull request or
 by email at `giorgio.piras@unica.it`.
