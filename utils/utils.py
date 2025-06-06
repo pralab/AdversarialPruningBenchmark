@@ -77,7 +77,7 @@ def load_model(model_key=None, normalization=False):
         # download the checkpoint
         download_gdrive_new(model_gdrive_id, model_path, saved_model_path)
         # define saved model path
-        checkpoint = torch.load(saved_model_path, map_location=device)
+        checkpoint = torch.load(saved_model_path, map_location=device, weights_only=False)
 
         # get ap_method+arch to load model
         third_idx = model_key.find('_', model_key.find('_', model_key.find('_') + 1) + 1)

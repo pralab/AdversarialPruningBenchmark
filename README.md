@@ -39,13 +39,23 @@ To clone our repo, copy and paste this command
 git clone https://github.com/pralab/AdversarialPruningBenchmark
 ```
 
+### Requirements 
+Besides the packages in `requirements.txt`, you will need to clone HOFMN: 
+```bash 
+git clone https://github.com/pralab/HOFMN
+```
+
 ### Test a pruned model already loaded in the benchmark :hammer_and_wrench:
 To test a pruned model that is available at our leaderboard, one must specify the AP method, the architecture, the dataset, the structure, and the sparsity.
 Then, the model can be loaded and tested, and additionally security curves can be plotted!
 
 
 ```python
-from utils.utils import load_model, model_key_maker
+import os
+import sys
+sys.path.insert(0, os.path.abspath('.'))
+sys.path.insert(0, os.path.abspath('./HOFMN'))
+from utils.utils import load_model, model_key_maker, load_distance
 from utils.plots import plot_sec_curve
 from utils.test import test_model_aa, test_model_hofmn
 from taxonomy.utils import load_ap_taxonomy
@@ -54,7 +64,7 @@ ap = "HYDRA_Sehwag2020Hydra"
 arch = "resnet18"
 ds = "CIFAR10"
 struct = "weights"  # or filters, channels
-sr = "90"
+sr = "95"
 
 # get a unique model key
 model_key = model_key_maker(ap_method=ap,
@@ -68,7 +78,7 @@ model = load_model(model_key=model_key)
 distances = load_distance(model_key=model_key)
 
 # test the model 
-clean_acc, rob_acc_aa = test_model_aa(model, dataset=ds, data_dir='my_datadir/CIFAR10', device='cuda:0')
+clean_acc, rob_acc_aa = test_model_aa(model, ds=ds, data_dir='my_datadir/CIFAR10', device='cuda:0')
 rob_acc_hofmn, _ = test_model_hofmn(model, model_key=model_key, dataset=ds, data_dir='my_datadir/CIFAR10', device='cuda:0', loss='DLR', optimizer='SGD', scheduler='CALR', get_distances=False)
 
 # plot security curve (you can compare even more models together)
@@ -79,8 +89,8 @@ print(f'Model {model_key} clean accuracy: {clean_acc}')
 print(f'Model {model_key} AA robust accuracy: {rob_acc_aa}')
 print(f'Model {model_key} HOFMN robust accuracy: {rob_acc_hofmn}')
 print(f'Within the taxonomy, here are the AP entries: {load_ap_taxonomy(ap)}')
-
 ```
+
 ### Evaluate your local model :microscope: 
 If you instead want to test your local model with AutoAttack and HO-FMN, follow this code after cloning the repo through: 
 ```python
