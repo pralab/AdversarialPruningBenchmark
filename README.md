@@ -25,6 +25,17 @@ For further details, please refer to our paper accepted at [Pattern Recognition 
 
 - Here, you will find the checkpoints of state-of-the-art AP methods, the analysis of their designs as per our taxonomy, and a fair adversarial robustness evaluation benchmark!
 
+
+## Why should you care about adversarial pruning? 
+
+<div align="center">
+  <img src="media/boundaries.png" alt="Decision Boundaries" width="100%"/>
+</div>
+
+Adversarial pruning is not just about making networks smaller — it's about preserving security under strict resource constraints. This challenge sits at the intersection of two hard problems: compression and robustness. As we show here, pruning alone simplifies decision boundaries, but preserving robustness **demands more complexity**, not less. This makes adversarial pruning uniquely challenging and intriguing: it forces us to rethink how we design sparse, yet secure, models.
+
+
+
 ## Play with the notebook :video_game:
 
 ![Interactive Plot](media/security_curve.gif)
@@ -282,15 +293,6 @@ For a detailed description, please refer to our paper.
 ### ImageNet US pruning 
 
 ### ImageNet S pruning 
-
-
-## Why should you care about adversarial pruning? 
-
-<div align="center">
-  <img src="media/boundaries.png" alt="Decision Boundaries" width="100%"/>
-</div>
-
-Adversarial pruning is not just about making networks smaller — it's about preserving security under strict resource constraints. This challenge sits at the intersection of two hard problems: compression and robustness. As we show here, pruning alone simplifies decision boundaries, but preserving robustness **demands more complexity**, not less. This makes adversarial pruning uniquely challenging and intriguing: it forces us to rethink how we design sparse, yet secure, models.
 
 
 ## Citation
