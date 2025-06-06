@@ -287,7 +287,7 @@ For a detailed description, please refer to our paper.
 ## Why should you care about adversarial pruning? 
 
 <div align="center">
-  <img src="media/boundaries.png" alt="Decision Boundaries" width="50%"/>
+  <img src="media/boundaries.png" alt="Decision Boundaries" width="80%"/>
 </div>
 
 Adversarial pruning is not just about making networks smaller — it's about preserving security under strict resource constraints. This challenge sits at the intersection of two hard problems: compression and robustness. As we show here, pruning alone simplifies decision boundaries, but preserving robustness **demands more complexity**, not less. This makes adversarial pruning uniquely challenging and intriguing: it forces us to rethink how we design sparse, yet secure, models.
