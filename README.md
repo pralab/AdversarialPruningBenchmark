@@ -327,8 +327,7 @@ by the European Union’s Horizon Europe Research and Innovation Programme under
 and by Fondazione di Sardegna under the project [TrustML: Towards Machine Learning that Humans Can Trust](https://www.fondazionedisardegna.it/), CUP: F73C22001320007.
 
 <img src="media/SERICS.png" alt="serics" style="width:200px;"/> &nbsp;&nbsp; 
-<img src="media/FAIR.png" alt="fair" style="width:80px;"/> &nbsp;&nbsp;
-<img src="media/SAFER.png" alt="safer" style="width:200px;"/> &nbsp;&nbsp;
+<img src="media/logoPNRRFAIR.png" alt="fair" style="width:80px;"/> &nbsp;&nbsp;
 <img src="media/sec4AI4sec.png" alt="sec4ai4sec" style="width:70px;"/> &nbsp;&nbsp; 
 <img src="media/elsa.jpg" alt="sec4ai4sec" style="width:70px;"/> &nbsp;&nbsp;
 <img src="media/fondazione-sardegna.png" alt="fondazione_sardegna" style="width:150px;"/>
